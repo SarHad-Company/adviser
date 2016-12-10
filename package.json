@@ -2,11 +2,10 @@
   "name": "Adviser",
   "version": "1.1.0",
   "description": "Build out MEAN stack app",
-
   "author": "SarHad-Company",
   "contributors": [
-  "Sarya Alsayed <e.saryaa@gmail.com>"
-  "Hadyl Khawaldeh <hadylgk87@gmail.com>"
+    "Sarya Alsayed <e.saryaa@gmail.com>",
+    "Hadyl Khawaldeh <hadylgk87@gmail.com>"
   ],
   "scripts": {
     "start": "nodemon ./server/server.js",
@@ -20,11 +19,12 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.4.3",
-    "nodemon": "^1.9.2",
     "express": "^4.4.5",
     "jwt-simple": "^0.2.0",
     "mongoose": "^4.1.0",
     "morgan": "^1.1.1",
+    "multer": "^1.2.0",
+    "nodemon": "^1.9.2",
     "request": "^2.36.0"
   }
 }

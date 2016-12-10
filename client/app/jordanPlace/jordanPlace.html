@@ -1,0 +1,37 @@
+<div>
+	<h1>Jordan Places</h1>
+	<label>Place Name:</label>
+	<form ng-submit="addJordanPlace()">
+	<input type="text" ng-model="placeName"/>
+	<label>Description:</label>
+	<input type="text" ng-model="description"/>
+	<div>
+    <input type="file" ngf-select ng-model="file" 
+    name="file" 
+    ngf-pattern="'image/*'"
+    accept="image/*" 
+    ngf-max-size="0.3MB" 
+    ng-change="submit()"
+    />
+    <img style="width:100px;" ng-show="!!file" ngf-thumbnail="file"/><br>
+    <i ng-show="file.$error.maxSize">File too large 
+    {{file.size / 1000000|number:1}}MB: max 20M</i>
+    <p>{{progress}}</p>
+</div>
+<div> 
+<label>Photos :</label>
+<button ngf-select="uploadFiles()" ng-model="files" ngf-multiple="true" accept="image/*">Select files</button>
+<br>Files:
+    <ul>
+        <li ng-repeat="f in files" style="font:smaller">
+            {{f.name}}
+        </li>
+    </ul>
+    <span class="progress" ng-show="progress1 >= 0">
+        <div style="width:{{progress1}}%" ng-bind="progress1 + '%'"></div>
+    </span>
+
+</div>
+    <input  type ="submit" name="add"/>
+	</form>
+</div>
