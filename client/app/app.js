@@ -70,7 +70,11 @@ angular.module('adviser', [
   .when('/allDestinations', {
     templateUrl: 'app/destination/destination.html',
     controller: 'destinationController'
-  });
+  })
+  .when('/Home', {
+    templateUrl: 'app/main/main.html'
+  })
+  ;
     
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
