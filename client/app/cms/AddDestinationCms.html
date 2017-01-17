@@ -54,19 +54,19 @@
            <!--  table for our data  -->
     <table border="0" cellpadding="5" cellspacing="8">
         <tr>
-            <th valign="top">Destination Name:</th>
+            <th valign="top">Destination Name*:</th>
             <td align="left" class="paddBot11">
             <div class="col-lg-6"><input type="text" class="form-control" ng-model="destinationName"/></div></td>
             <td></td>
         </tr>
     <tr>
-        <th valign="top">Description:</th>
+        <th valign="top">Description*:</th>
         <td align="left" class="paddBot11"><textarea  ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea></td>
         <!-- <button ng-click="getContent()">Get content</button> -->
         <td></td>
     </tr>
     <tr>
-    <th valign="top">Main Image:</th>
+    <th valign="top">Main Image*:</th>
     <td>
     <input type="file" ngf-select ng-model="mainfile" 
     name="file" 
@@ -81,7 +81,7 @@
     <p>{{progress}}</p>
 </td> <td></td></tr>
 <tr>
-    <th valign="top">Map Image:</th>
+    <th valign="top">Map Image*:</th>
     <td>
     <input type="file" ngf-select ng-model="mapfile" 
     name="file" 
@@ -144,5 +144,25 @@
         </tr>
     </tbody></table>
    
+   <!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alert</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please Enter Required Information For Destination.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     
 
