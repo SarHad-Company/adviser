@@ -176,7 +176,6 @@ angular.module('adviser.services', [])
       });
     };
 
-
   return {
     getPackages: getPackages,
     addNewPackage: addNewPackage,
@@ -185,6 +184,7 @@ angular.module('adviser.services', [])
     updatePackage: updatePackage,
     deletePhoto: deletePhoto,
     deletePackage: deletePackage
+
   };
 
 

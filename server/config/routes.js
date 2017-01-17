@@ -25,6 +25,7 @@ app.put('/api/package/packageUpdate/:id', packageController.updatePackage);
 app.put('/api/package/deletePhoto', packageController.deleteMainPhoto);
 app.delete('/api/package/deletePackage/:id', packageController.deletePackage);
 
+
 // destination api
 app.post('/api/addDestination', destinationController.createNewDestination);
 app.get('/api/destination', destinationController.getAllDestination);
