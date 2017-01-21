@@ -39,7 +39,8 @@ module.exports = {
 			trblthree: package.trblthree,
 			trblfour: package.trblfour,
 			trblfourb: package.trblfourb,
-			trblfive: package.trblfive
+			trblfive: package.trblfive,
+			status: package.status
 		});
 		newPackage.save(function (err, package) {
 			repsonseHandler(err, req, res, {status: 201, returnObj: package}, next);
@@ -108,6 +109,7 @@ module.exports = {
 			packageOne.trblfour = package.trblfour;
 			packageOne.trblfourb = package.trblfourb;
 			packageOne.trblfive = package.trblfive;
+			packageOne.status = package.status;
 			packageOne.save(function (err, savedPackage) {
 				repsonseHandler(err, req, res, {status: 201, returnObj: savedPackage}, next);
 			});

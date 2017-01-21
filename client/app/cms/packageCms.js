@@ -66,7 +66,7 @@ angular.module('adviser.packageCms', [])
 		$scope.trblfour = package.trblfour;
 		$scope.trblfourb = package.trblfourb;
 		$scope.trblfive = package.trblfive;
-
+        $("#status").val(package.status);
 		}).catch(function(error){
 			throw error;
 		});
@@ -111,6 +111,7 @@ angular.module('adviser.packageCms', [])
 		package.trblfour= $scope.trblfour;
 		package.trblfourb= $scope.trblfourb;
 		package.trblfive= $scope.trblfive;
+		package.status= $("#status").val();
         console.log("update", package)
 		Package.updatePackage($routeParams.id, package)
 		.then(function (package) {

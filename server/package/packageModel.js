@@ -36,7 +36,8 @@ var packageSchema = new mongoose.Schema({
 	trblthree: {type: Number},
 	trblfour: {type: Number},
 	trblfourb: {type: Number},
-	trblfive: {type: Number}
+	trblfive: {type: Number},
+	status : {type: String, default:"active"}
 });
 
 packageSchema.plugin(autoIncrement.plugin,{model: 'Package',startAt: 1});

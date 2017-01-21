@@ -1,15 +1,10 @@
 var helpers = require('./helpers.js'); // our custom middleware
 var utils = require('./utils.js');
-var jordanController = require('../jordan/jordanController.js');
 var jordanPlaceController = require('../jordanPlace/jordanPlaceController.js');
 var destinationController= require('../destination/destinationController.js');
 var packageController= require('../package/packageController.js');
 var enquiryController = require('../enquiry/enquiryController.js');
 module.exports = function (app, express) {
-
-// jordan api 
-app.get('/api/jordan',jordanController.jordanInfo);
-app.post('/api/jordan',jordanController.createJordan);
 
 // jordanPlace api
 app.get('/api/jordanPlace/placeInfo/:id',jordanPlaceController.placeInfo);
