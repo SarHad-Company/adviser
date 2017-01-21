@@ -1,38 +1,52 @@
-'use strict';
 angular.module('adviser.addDestinationCms', [])
-.controller('addDestinationCmsController', function($scope, $window, Destination){
+.controller('addDestinationCmsController', function($scope, $window, Destination, $location){
 
 	$scope.data= {};
 	$scope.destination= {};
-	var photos= [];
+	$scope.photos= [];
+	$("#wait").hide();
+	$("#waitMap").hide();
+	$("#waitPhotos").hide();
+
 
 	$scope.addDestination= function(){
-		$scope.destination.destinationName= $scope.destinationName;
-		$scope.destination.description= $scope.tinymceModel;
-		$scope.destination.mainPhoto= $scope.mainfile;
-		$scope.destination.mapPhoto= $scope.mapfile;
-		$scope.destination.photos= photos;
-		Destination.addDestination($scope.destination)
-		.then(function(destination){
-			console.log(destination);
-			alert("destination is created");
-		})
-		.catch(function(error){
-			throw error;
-			alert(error);
-		});
+		if ($scope.destinationName == undefined || $scope.mainfile == undefined || $scope.mapfile == undefined|| $scope.photos.length === 0 ){
+			$('#myModal2').modal();
+		}
+		else{
+			$scope.destination.destinationName= $scope.destinationName;
+			$scope.destination.description= $scope.tinymceModel;
+			$scope.destination.mainPhoto= $scope.mainfile;
+			$scope.destination.mapPhoto= $scope.mapfile;
+			$scope.destination.photos= $scope.photos;
+			Destination.addDestination($scope.destination)
+			.then(function(destination){
+				alert("destination is created");
+				$location.path('cms/destinations');
+			})
+			.catch(function(error){
+				throw error;
+				alert(error);
+			});
+	    }
 	};
 
 	$scope.uploadMain= function(file){
+		$("#wait").show();
 		Destination.uploadPicture(file)
 		.then(function(resp){
 			if(resp.data.error_code===0){
 				$scope.mainfile= '../../uploads/'+resp.data.file.filename;
+				$("#mainPhoto").hide();
+				$('#wait').hide();
 			}else{
 				$window.alert('An error occured!!!')
 			}
 		},function (resp) { //catch error
 			$window.alert('Error status: ' + resp.status);
+        }, function (evt) { 
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            $scope.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
         });
 	};
 
@@ -43,15 +57,21 @@ angular.module('adviser.addDestinationCms', [])
 	};
 
 	$scope.uploadMap= function(file){
+		$("#waitMap").show();
 		Destination.uploadPicture(file)
 		.then(function(resp){
 			if(resp.data.error_code===0){
 				$scope.mapfile= '../../uploads/'+resp.data.file.filename;
+				$("#map").hide();
+				$("#waitMap").hide();
 			}else{
 				$window.alert('An error occured!!!')
 			}
 		},function (resp) { //catch error
 			$window.alert('Error status: ' + resp.status);
+        }, function (evt) { 
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            $scope.progressMap = 'progress: ' + progressPercentage + '% '; // capture upload progress
         });
 	};
 
@@ -62,19 +82,28 @@ angular.module('adviser.addDestinationCms', [])
 	};
 
 	$scope.uploadFiles= function(){
+		$("#waitPhotos").show();
 		if($scope.files && $scope.files.length){
 			for(var i=0; i<$scope.files.length; i++){
 				Destination.uploadPicture($scope.files[i])
 				.then(function(resp){
 					if(resp.data.error_code===0){
 						$scope.photo='../../uploads/'+resp.data.file.filename;
-                		photos.push($scope.photo);
+                		$scope.photos.push($scope.photo);
+                		$("#photos").hide();
+                		if($scope.photos.length === $scope.files.length){
+                			console.log(i);
+                			$("#waitPhotos").hide();
+                		}
 					}else{
 						$window.alert('An error occured!!!');
 					}
 				},function (resp) { //catch error
             		$window.alert('Error status: ' + resp.status);
-        		});
+        		}, function (evt) { 
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            $scope.progress1 = 'progress: ' + progressPercentage + '% '; // capture upload progress
+        });
 			}
 		}
 	}

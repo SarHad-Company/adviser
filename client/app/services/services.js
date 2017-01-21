@@ -56,13 +56,30 @@ angular.module('adviser.services', [])
     });
   };
 
+  var updatePlace = function (id, place) {
+      return $http({
+        method: 'PUT',
+        url: '/api/jordanPlace/updatePlace/' + id,
+        data: place
+      });
+    };
+
+  var deletePlace = function (id) {
+      return $http({
+        method: 'DELETE',
+        url: '/api/jordanPlace/deletePlace/' + id,
+      });
+    };
+
   return {
     getJordanInfo: getJordanInfo,
     addPlace : addPlace,
     getPlaceInfo : getPlaceInfo,
     uploadPicture : uploadPicture,
     getPlaces : getPlaces,
-    addJordanInfo: addJordanInfo
+    addJordanInfo: addJordanInfo,
+    updatePlace: updatePlace,
+    deletePlace: deletePlace
   };
 
 
@@ -106,11 +123,28 @@ angular.module('adviser.services', [])
     });
   };
 
+  var updateDestination = function (id, destination) {
+      return $http({
+        method: 'PUT',
+        url: '/api/destination/updateDestination/' + id,
+        data: destination
+      });
+    };
+
+  var deleteDestination = function (id) {
+      return $http({
+        method: 'DELETE',
+        url: '/api/destination/deleteDestination/' + id,
+      });
+    };
+
   return{
     addDestination: addDestination,
     uploadPicture: uploadPicture,
     getAllDestinations: getAllDestinations,
-    getDestinationInfo: getDestinationInfo
+    getDestinationInfo: getDestinationInfo,
+    updateDestination: updateDestination,
+    deleteDestination: deleteDestination
   };
 
 })
@@ -161,7 +195,6 @@ angular.module('adviser.services', [])
     };
 
   var deletePhoto = function (photo) {
-    console.log("service", photo)
       return $http({
         method: 'PUT',
         url: '/api/package/deletePhoto',

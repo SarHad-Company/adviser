@@ -1,17 +1,18 @@
-
 angular.module('adviser.jordan', [])
-.controller('jordanController', function ($scope, Jordan) {
-  // Your code here
-  var inite = function () {
-    Jordan.getJordanInfo()
-      .then(function (jordan) {
-        $scope.data = jordan[0];
-        $("#dest").html(jordan[0].description);
-        console.log($scope.data);
-      })
-      .catch(function (error) {
-        alert("an error eccured");
-      });
+.controller('jordanController', function ($scope, Jordan, Destination) {
+  var getJordan= function(){
+    Destination.getAllDestinations()
+    .then(function(destinations){
+      for (var i=0 ; i<destinations.length ; i++){
+        if (destinations[i].destinationName === "jordan" || destinations[i].destinationName === "Jordan" || destinations[i].destinationName === "JORDAN"){
+          $scope.data = destinations[i];
+          $("#dest").html(destinations[i].description);
+        }
+      }
+    
+    }).catch(function(error){
+      alert("An Error Occured");
+    });
   };
 
   var initePlaces = function () {
@@ -25,6 +26,6 @@ angular.module('adviser.jordan', [])
       });
   };
   
-  inite();
+  getJordan();
   initePlaces();
   });

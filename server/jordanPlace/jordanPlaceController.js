@@ -38,5 +38,19 @@ module.exports = {
 		.exec(function (err, places) {
 			repsonseHandler(err, req, res, {status: 201, returnObj: places}, next);
 		});
+	},
+
+	updatePlace: function (req, res, next) {
+		var place = req.body;
+		JordanPlace.findOne({_id: req.params.id})
+		.exec(function (err, placeOne) {	
+			placeOne.placeName = place.placeName;
+			placeOne.mainPhoto = place.mainPhoto;
+			placeOne.description = place.description;
+			placeOne.photos = place.photos;
+			placeOne.save(function (err, savedPlace) {
+				repsonseHandler(err, req, res, {status: 201, returnObj: savedPlace}, next);
+			});
+		});			
 	}		
 };

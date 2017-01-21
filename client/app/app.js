@@ -60,12 +60,20 @@ angular.module('adviser', [
       templateUrl: 'app/cms/jordanPlaceCms.html',
       controller: 'jordanPlaceCmsController'
     })
+  .when('/cms/jordanPlaces/:id', {
+      templateUrl: 'app/cms/updatejordanPlaceCms.html',
+      controller: 'jordanPlaceCmsController'
+    })
   .when('/cms/addPlace', {
       templateUrl: 'app/cms/addJordanPlaceCms.html',
       controller: 'addJordanPlaceCmsController'
     })
   .when('/cms/destinations', {
     templateUrl: 'app/cms/destinationCms.html',
+    controller: 'destinationCmsController'
+  })
+  .when('/cms/destinations/:id', {
+    templateUrl: 'app/cms/updateDestinationCms.html',
     controller: 'destinationCmsController'
   })
   .when('/cms/addDestination', {

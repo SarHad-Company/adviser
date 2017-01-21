@@ -1,3 +1,4 @@
+
     <table align="center" cellpadding="0" cellspacing="0" width="1010">
         <tbody><tr>
         <td width="5" style="background-image:url('../../images/Left_Shadow.png');background-repeat:repeat-y;">
@@ -41,7 +42,7 @@
                             <div>
                             
 <div style="margin-left: 200px;width:500px;">
-        <span id="ctl00_ContentPlaceHolder1_lblPageName" style="font-family:tahoma;font-size:18pt;">Add Jordan Information</span>
+        <span id="ctl00_ContentPlaceHolder1_lblPageName" style="font-family:tahoma;font-size:18pt;">Add Place</span>
 
    
             
@@ -53,49 +54,62 @@
             </div>
            <!--  table for our data  -->
     <table border="0" cellpadding="5" cellspacing="8">
-       
+        <tr>
+            <th valign="top">Place Name*:</th>
+            <td align="left" class="paddBot11">
+            <div class="col-lg-6"><input type="text" class="form-control" ng-model="placeName"/></div></td>
+            <td></td>
+        </tr>
     <tr>
-        <th valign="top">Description:</th>
-        <td align="left" class="paddBot11"><textarea  ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea></td>
+        <th valign="top">Description:</th> <td align="left" class="paddBot11"><textarea  ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea></td>
         <!-- <button ng-click="getContent()">Get content</button> -->
         <td></td>
     </tr>
     <tr>
-    <th valign="top">Main Image:</th>
+    <th valign="top">Main Image*:</th>
     <td>
-    <input type="file" ngf-select ng-model="mainfile" 
+
+      <input id="mainPhoto" type="file" ngf-select ng-model="mainfile" 
     name="file" 
     ngf-pattern="'image/*'"
     accept="image/*" 
     ngf-max-size="0.3MB" 
     ng-change="submitMain()"
     />
-    <img style="width:100px;" ng-show="!!mainfile" ngf-thumbnail="mainfile"/><br>
+    <img style="width:100px;" ng-show="!!mainfile" ngf-thumbnail="mainfile"/>
+     <button ng-click="deleteMainPhoto()" id="removePhoto" class="btn btn-danger btn-xs">remove</button>
+    <br>
     <i ng-show="mainfile.$error.maxSize">File too large 
     {{mainfile.size / 1000000|number:1}}MB: max 20M</i>
     <p>{{progress}}</p>
 </td> <td></td></tr>
-<tr>
-    <th valign="top">Map Image:</th>
-    <td>
-    <input type="file" ngf-select ng-model="mapfile" 
-    name="file" 
-    ngf-pattern="'image/*'"
-    accept="image/*" 
-    ngf-max-size="0.3MB" 
-    ng-change="submitMap()"
-    />
-    <img style="width:100px;" ng-show="!!mapfile" ngf-thumbnail="mapfile"/><br>
-    <i ng-show="mapfile.$error.maxSize">File too large 
-    {{mapfile.size / 1000000|number:1}}MB: max 20M</i>
-    <p>{{progress}}</p>
-</td> <td></td></tr>
 
-    
+<!-- </tbody></table> -->
+<!-- </td> -->
+   <!--  </tr> -->
+    <tr>
+        <th>Images*:</th>
+        <td valign="top">
+           <div class="row" style="border-width:1px; border-style:solid; margin-bottom:10px; padding-top: 5px">
+        <div ng-repeat="f in photos" style="font:smaller; float: left; margin-left:10px; margin-bottom: 30px; border-width:1px; border-style:dashed;" class="content">
+          <img style="width:100px; height: 100px;" src="{{f}}" id="pacImage" alt="photo" />
+          <button class="btn btn-xs btn-danger ff" style="position:absolute;margin-left:22px" ng-click="deletePhoto(f)" id="fi">remove</button>
+      </div>
+      <div style="font:smaller; float: left; margin-left:10px; margin-bottom: 30px; border-width:1px; border-style:dashed;" class="content">
+      <img style="width:100px; height: 100px;" src="">
+      <p>{{progress1}}</p>
+      <button class="btn btn-xs btn-info" style="position:absolute;margin-left:22px"  id="photos" ngf-select="uploadFiles()" ng-model="files" ngf-multiple="true" accept="image/*">upload</button>
+
+      </div>
+        </div>
+        </td>
+        <td></td>
+    </tr>
     <tr>
         <th>&nbsp;</th>
         <td valign="top">
-            <button ng-click="addJordan()" >save</button>
+             <button ng-click="updatePlace()">update</button>
+             <button ng-click="deletePlace()">delete</button>
         </td>
         <td></td>
     </tr>
@@ -123,6 +137,27 @@
         <td width="5" style="background-image:url('../../images/Right_Shadow.png');background-repeat:repeat-y;"></td>
         </tr>
     </tbody></table>
-   
+     <!-- Modal -->
+<div id="myModal5" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alert</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please Enter Required Information For Joradn Place.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     
+
+
 

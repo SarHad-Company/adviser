@@ -14,8 +14,8 @@ require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
 // start listening to requests on port 8000
-app.listen(process.env.PORT || 8000);
-console.log("server start at http://127.0.0.1:8000/")
+app.listen(process.env.PORT || 8800);
+console.log("server start at http://127.0.0.1:8800/")
 
 // export our app for testing and flexibility, required by index.js
 module.exports = app;

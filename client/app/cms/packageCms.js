@@ -178,23 +178,17 @@ angular.module('adviser.packageCms', [])
 	}
 
 	// delete package
-	$scope.deletePackage = function(){
+		$scope.deletePackage = function(){
 		if (confirm("Are You Sure From Deleting This Package?!") == true) {  
 			Package.deletePackage($routeParams.id)
 			.then(function (package){
 				console.log(package);
 				Package.deletePhoto(package.data.mainPhoto)
-				.then(function (photo){
 					for (var i=0; i<package.data.photos.length; i++){
 						Package.deletePhoto(package.data.photos[i]);
 					}
 					alert("Your Package is deleted");
 					$location.path('cms/packages/'+package.data.type);
-
-				}).catch(function(error){
-					throw error;
-
-				})
 
 			}).catch(function (error){
 				alert("An Error Occured!!");
