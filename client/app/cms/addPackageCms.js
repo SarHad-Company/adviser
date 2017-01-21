@@ -43,6 +43,7 @@ angular.module('adviser.addPackageCms', [])
 		package.trblfour= $scope.trblfour;
 		package.trblfourb= $scope.trblfourb;
 		package.trblfive= $scope.trblfive;
+		package.status= $("#status").val();
 		Package.addNewPackage(package)
 		.then(function(package){
 			console.log(package);

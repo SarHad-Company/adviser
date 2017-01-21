@@ -288,11 +288,15 @@
         </td>
         <td></td>
     </tr>
+     <tr><th>Status*:</th><td>
+            
+              <select id="status"><option value='active'>Active</option><option value='notActive'>Not Active</option></select></td><td></td></tr>
+    <tr>
     <tr>
         <th>&nbsp;</th>
         <td valign="top">
-            <button ng-click="updatePackageInfo()">update</button>
-            <button ng-click="deletePackage()">delete</button>
+            <button ng-click="updatePackageInfo()" class="btn btn-info" style="margin-top:20px ">update</button>
+            <button ng-click="deletePackage()" class="btn btn-info" style="margin-top:20px; margin-left:20px ">delete</button>
         </td>
         <td>
         </td>
