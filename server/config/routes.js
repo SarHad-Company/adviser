@@ -15,6 +15,8 @@ app.post('/api/jordan',jordanController.createJordan);
 app.get('/api/jordanPlace/placeInfo/:id',jordanPlaceController.placeInfo);
 app.post('/api/jordanPlace',jordanPlaceController.createNewJordanPlace);
 app.get('/api/jordanPlace/allPlaces',jordanPlaceController.getAllPlaces);
+app.put('/api/jordanPlace/updatePlace/:id', jordanPlaceController.updatePlace);
+app.delete('/api/jordanPlace/deletePlace/:id', jordanPlaceController.deletePlace);
 
 // package api 
 app.get('/api/package/allPackages/:type', packageController.getPackagesDependonType);
@@ -25,11 +27,13 @@ app.put('/api/package/packageUpdate/:id', packageController.updatePackage);
 app.put('/api/package/deletePhoto', packageController.deleteMainPhoto);
 app.delete('/api/package/deletePackage/:id', packageController.deletePackage);
 
-
 // destination api
 app.post('/api/addDestination', destinationController.createNewDestination);
 app.get('/api/destination', destinationController.getAllDestination);
-app.get('/api/destination/destinationInfo/:id', destinationController.destinationInfo)
+app.get('/api/destination/destinationInfo/:id', destinationController.destinationInfo);
+app.put('/api/destination/updateDestination/:id', destinationController.updateDestination);
+app.delete('/api/destination/deleteDestination/:id', destinationController.deleteDestination);
+
 // upload an image 
 app.post('/api/upload',utils.uploadImg);
   // If a request is sent somewhere other than the routes above,

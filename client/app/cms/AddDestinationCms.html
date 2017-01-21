@@ -60,7 +60,7 @@
             <td></td>
         </tr>
     <tr>
-        <th valign="top">Description*:</th>
+        <th valign="top">Description:</th>
         <td align="left" class="paddBot11"><textarea  ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea></td>
         <!-- <button ng-click="getContent()">Get content</button> -->
         <td></td>
@@ -68,13 +68,13 @@
     <tr>
     <th valign="top">Main Image*:</th>
     <td>
-    <input type="file" ngf-select ng-model="mainfile" 
+    <input id="mainPhoto" type="file" ngf-select ng-model="mainfile" 
     name="file" 
     ngf-pattern="'image/*'"
     accept="image/*" 
     ngf-max-size="0.3MB" 
     ng-change="submitMain()"
-    />
+    /><img id="wait" src="../../images/bx_loader.gif" >
     <img style="width:100px;" ng-show="!!mainfile" ngf-thumbnail="mainfile"/><br>
     <i ng-show="mainfile.$error.maxSize">File too large 
     {{mainfile.size / 1000000|number:1}}MB: max 20M</i>
@@ -83,32 +83,29 @@
 <tr>
     <th valign="top">Map Image*:</th>
     <td>
-    <input type="file" ngf-select ng-model="mapfile" 
+    <input id="map" type="file" ngf-select ng-model="mapfile" 
     name="file" 
     ngf-pattern="'image/*'"
     accept="image/*" 
     ngf-max-size="0.3MB" 
     ng-change="submitMap()"
-    />
+    /><img id="waitMap" src="../../images/bx_loader.gif" >
     <img style="width:100px;" ng-show="!!mapfile" ngf-thumbnail="mapfile"/><br>
     <i ng-show="mapfile.$error.maxSize">File too large 
     {{mapfile.size / 1000000|number:1}}MB: max 20M</i>
-    <p>{{progress}}</p>
+    <p>{{progressMap}}</p>
 </td> <td></td></tr>
 
     <tr>
         <th>Images:</th>
         <td valign="top">
-          <button ngf-select="uploadFiles()" ng-model="files" ngf-multiple="true" accept="image/*">Select files</button>
+          <button id="photos" ngf-select="uploadFiles()" ng-model="files" ngf-multiple="true" accept="image/*">Select files</button><img id="waitPhotos" src="../../images/bx_loader.gif" >
 <br>Files:
     <ul>
-        <li ng-repeat="f in files" style="font:smaller">
-            {{f.name}}
+        <li ng-repeat="f in photos" style="font:smaller">
+            {{f}}<p>{{progress1}}</p>
         </li>
     </ul>
-    <span class="progress" ng-show="progress1 >= 0">
-        <div style="width:{{progress1}}%" ng-bind="progress1 + '%'"></div>
-    </span>
         </td>
         <td></td>
     </tr>

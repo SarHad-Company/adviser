@@ -1,24 +1,32 @@
 angular.module('adviser.addJordanPlaceCms', [])
 
-.controller('addJordanPlaceCmsController', function ($scope, Jordan) {
+.controller('addJordanPlaceCmsController', function ($scope, Jordan, $location) {
   // Your code here
 
   $scope.place={};
   $scope.photos=[];
+  $("#wait").hide();
+  $("#waitPhotos").hide();
   
   $scope.addJordanPlace= function (){
-    $scope.place.placeName=$scope.placeName;
-    $scope.place.description = $scope.tinymceModel;
-    $scope.place.mainPhoto = $scope.picture;
-    $scope.place.photos = $scope.photos;
-    Jordan.addPlace($scope.place)
-    .then(function (place){
-      alert("place is created");
-    })
-    .catch(function (error){
-      alert(error);
-    })
-  }
+    if ($scope.placeName == undefined || $scope.picture == undefined || $scope.photos.length === 0 ){
+      $('#myModal4').modal();
+    }
+    else{
+      $scope.place.placeName=$scope.placeName;
+      $scope.place.description = $scope.tinymceModel;
+      $scope.place.mainPhoto = $scope.picture;
+      $scope.place.photos = $scope.photos;
+      Jordan.addPlace($scope.place)
+      .then(function (place){
+        alert("place is created");
+        $location.path('cms/jordanPlaces');
+      })
+      .catch(function (error){
+        alert(error);
+      })
+    }
+  };
 
 $scope.submit = function(){ //function to call on upload 
     if ($scope.file) { //check if file is loaded
@@ -27,10 +35,13 @@ $scope.submit = function(){ //function to call on upload
 }
 
 $scope.upload = function(file) {//upload an image to the game
+        $("#wait").show();
         Jordan.uploadPicture(file)
         .then(function (resp) { //upload function returns a promise
             if(resp.data.error_code === 0){ //validate success
                 $scope.picture='../../uploads/'+resp.data.file.filename;
+                $("#mainPhoto").hide();
+                $('#wait').hide();
             } else {
                 $window.alert('an error occured');
             }
@@ -44,6 +55,7 @@ $scope.upload = function(file) {//upload an image to the game
 
 
     $scope.uploadFiles = function () {
+      $("#waitPhotos").show();
       if ($scope.files && $scope.files.length) {
         for (var i = 0; i < $scope.files.length; i++) {
           Jordan.uploadPicture($scope.files[i])
@@ -52,6 +64,10 @@ $scope.upload = function(file) {//upload an image to the game
             if(resp.data.error_code === 0){ //validate success
                 $scope.photo='../../uploads/'+resp.data.file.filename;
                 $scope.photos.push($scope.photo);
+                $("#photos").hide();
+                    if($scope.photos.length === $scope.files.length){
+                      $("#waitPhotos").hide();
+                    }
 
             } else {
                 $window.alert('an error occured');
