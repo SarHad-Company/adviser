@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var autoIncrement = require('mongoose-auto-increment');
 
+
  //creating Enquiry Model
 var enquirySchema = new mongoose.Schema({
 	checkin: {type: Date},
@@ -26,7 +27,24 @@ var enquirySchema = new mongoose.Schema({
 	mobile: {type: Number},
 	email: {type: String},
 	package:{type: Number},
-	totalCost: {type: Number}	
+	totalCost: {type: Number},
+	arrivalInfo: {
+		flight: {type: String},
+		port: {type: String},
+		carrier: {type: String},
+		flightNumber: {type: String},
+		arrivalTime: {type: String}		
+	},
+	departureInfo: {
+		flight: {type: String},
+		port: {type: String},
+		carrier: {type: String},
+		flightNumber: {type: String},
+		departureTime: {type: String}		
+	},
+
+	enquiryDate: {type: Date, default: Date.now}
+
 });
 
 enquirySchema.plugin(autoIncrement.plugin,{model: 'Enquiry',startAt: 1});

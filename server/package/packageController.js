@@ -24,6 +24,7 @@ module.exports = {
 			price: package.price,
 			threeStarHotels: package.threeStarHotels,
 			fourStarHotels: package.fourStarHotels,
+			fourStarBHotels: package.fourStarBHotels,
 			fiveStarHotels: package.fiveStarHotels,
 			startAvailableDate: package.startAvailableDate,
 			endAvailableDate: package.endAvailableDate,
@@ -40,7 +41,11 @@ module.exports = {
 			trblfour: package.trblfour,
 			trblfourb: package.trblfourb,
 			trblfive: package.trblfive,
-			status: package.status
+			status: package.status,
+			highSublThree: package.highSublThree,
+		    highSublFour: package.highSublFour,
+		    highSublFourB: package.highSublFourB,
+		    highSublFive: package.highSublFive
 		});
 		newPackage.save(function (err, package) {
 			repsonseHandler(err, req, res, {status: 201, returnObj: package}, next);
@@ -93,6 +98,7 @@ module.exports = {
 			packageOne.price = package.price;
 			packageOne.threeStarHotels = package.threeStarHotels;
 			packageOne.fourStarHotels = package.fourStarHotels;
+			packageOne.fourStarBHotels = package.fourStarBHotels;
 			packageOne.fiveStarHotels = package.fiveStarHotels;
 			packageOne.startAvailableDate = package.startAvailableDate;
 			packageOne.endAvailableDate = package.endAvailableDate;
@@ -110,6 +116,10 @@ module.exports = {
 			packageOne.trblfourb = package.trblfourb;
 			packageOne.trblfive = package.trblfive;
 			packageOne.status = package.status;
+			packageOne.highSublThree = package.highSublThree;
+		    packageOne.highSublFour = package.highSublFour;
+		    packageOne.highSublFourB = package.highSublFourB;
+		    packageOne.highSublFive = package.highSublFive;
 			packageOne.save(function (err, savedPackage) {
 				repsonseHandler(err, req, res, {status: 201, returnObj: savedPackage}, next);
 			});
