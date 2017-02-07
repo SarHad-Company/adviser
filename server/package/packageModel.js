@@ -25,19 +25,19 @@ var packageSchema = new mongoose.Schema({
   notes: {type: String},
   mainPhoto: {type: String},
   photos: [String],
-  childPrice: {type: Number},
-  sglthree: {type: Number},
-  sglfour: {type: Number},
-  sglfourb: {type: Number},
-  sglfive: {type: Number},
-  dblthree: {type: Number},
-  dblfour: {type: Number},
-  dblfourb: {type: Number},
-  dblfive: {type: Number},
-  trblthree: {type: Number},
-  trblfour: {type: Number},
-  trblfourb: {type: Number},
-  trblfive: {type: Number},
+  childPrice: {type: Number, default: 0},
+  sglthree: {type: Number, default: 0},
+  sglfour: {type: Number, default: 0},
+  sglfourb: {type: Number, default: 0},
+  sglfive: {type: Number, default: 0},
+  dblthree: {type: Number, default: 0},
+  dblfour: {type: Number, default: 0},
+  dblfourb: {type: Number, default: 0},
+  dblfive: {type: Number, default: 0},
+  trblthree: {type: Number, default: 0},
+  trblfour: {type: Number, default: 0},
+  trblfourb: {type: Number, default: 0},
+  trblfive: {type: Number, default: 0},
   status : {type: String, default:"active"}, 
   highSeason1:{
     min: {type: String, default:'03-12' },
@@ -55,10 +55,10 @@ var packageSchema = new mongoose.Schema({
     min: {type: String, default:'01-01' },
     max: {type: String, default:'01-06'}
   },
-  highSublThree: {type: Number},
-  highSublFour: {type: Number},
-  highSublFourB: {type: Number},
-  highSublFive: {type: Number}
+  highSublThree: {type: Number, default: 0},
+  highSublFour: {type: Number, default: 0},
+  highSublFourB: {type: Number, default: 0},
+  highSublFive: {type: Number, default: 0}
 });
 
 packageSchema.plugin(autoIncrement.plugin,{model: 'Package',startAt: 1});

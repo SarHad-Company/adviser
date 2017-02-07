@@ -18,10 +18,11 @@ angular.module('adviser', [
   'ui.tinymce',
   'ngMaterial',
   'angularUtils.directives.dirPagination',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngMessages'
 ])
 .config(function ($routeProvider, $httpProvider) {
-
+ 
   $routeProvider
   .when('/jordan', {
     templateUrl: 'app/jordan/jordan.html',

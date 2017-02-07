@@ -31,6 +31,7 @@ app.delete('/api/destination/deleteDestination/:id', destinationController.delet
 
 // upload an image 
 app.post('/api/upload',utils.uploadImg);
+app.post('/api/sendMail', utils.voucherEmail);
   // If a request is sent somewhere other than the routes above,
   // send it through our custom error handler
 app.use(helpers.errorLogger);

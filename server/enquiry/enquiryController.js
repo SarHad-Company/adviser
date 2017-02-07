@@ -19,8 +19,12 @@ module.exports = {
 			passengers: enquiry.passengers,
 			package: enquiry.packageId,
 			arrivalInfo: enquiry.arrivalInfo,
-			departureInfo: enquiry.departureInfo
-
+			departureInfo: enquiry.departureInfo,
+			cost: enquiry.cost,
+			adults: enquiry.adults,
+			children: enquiry.children,
+			pax: enquiry.pax,
+			packageName: enquiry.packageName
 		});
 		newEnquiry.save(function (err, enquiry) {
 			repsonseHandler(err, req, res, {status: 201, returnObj: enquiry}, next);

@@ -208,6 +208,16 @@ angular.module('adviser.services', [])
         url: '/api/package/deletePackage/' + id,
       });
     };
+  var sendMail = function (enquiry, package) {
+    return $http({
+      method: 'POST',
+      url: '/api/sendMail',
+      data: {enquiry: enquiry, package: package}
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
 
   return {
     getPackages: getPackages,
@@ -216,7 +226,8 @@ angular.module('adviser.services', [])
     addEnquiry : addEnquiry,
     updatePackage: updatePackage,
     deletePhoto: deletePhoto,
-    deletePackage: deletePackage
+    deletePackage: deletePackage,
+    sendMail: sendMail
 
   };
 

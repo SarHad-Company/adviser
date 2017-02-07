@@ -11,6 +11,7 @@
       <!-- angular material --> 
       <link rel="stylesheet" href="lib/angular-material/angular-material.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="lib/intl-tel-input/build/css/intlTelInput.css" />
       <link rel="stylesheet" type="text/css" href="styles/style.css"/>
       <link href="styles/animate.css" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,7 +23,7 @@
     <div class="row">
       <div ng-view></div>
     </div>
-    
+          <script src="lib/intl-tel-input/build/js/intlTelInput.js"></script>
           <script src="lib/angular/angular.js"></script>
           <script src="lib/angular-route/angular-route.js"></script>
           <script src="lib/ng-file-upload/ng-file-upload-shim.min.js"></script>
@@ -34,6 +35,9 @@
           <script src="lib/tinymce/tinymce.js"></script>
           <script src="lib/angular-ui-tinymce/src/tinymce.js"></script>
           <script src="lib/angularUtils-pagination/dirPagination.js"></script>
+          <script src="lib/angular-messages/angular-messages.js"></script>
+          <script src="lib/intl-tel-input/lib/libphonenumber/build/utils.js"></script>
+          <script src="lib/international-phone-number/releases/international-phone-number.js"></script>
           <script src="lib/moment/moment.js"></script>
           <script src="lib/moment/locale/*.js"></script>
           <script src="lib/moment/min/moment-with-locales.js"></script>
@@ -50,7 +54,6 @@
           <script src="app/cms/packageCms.js"></script>
           <script src="app/cms/AddDestinationCms.js"></script>
           <script src="app/cms/addJordanPlaceCms.js"></script>
-          <script src="app/cms/addJordanCms.js"></script>
           <script src="app/cms/addPackageCms.js"></script>
           <script src="app/services/services.js"></script>
           <script src="app/app.js"></script>
