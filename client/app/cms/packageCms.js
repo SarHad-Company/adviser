@@ -67,11 +67,12 @@ angular.module('adviser.packageCms', [])
 		$scope.trblfour = package.trblfour;
 		$scope.trblfourb = package.trblfourb;
 		$scope.trblfive = package.trblfive;
-        $("#status").val(package.status);
-        $scope.highSublThree = package.highSublThree;
+    $("#status").val(package.status);
+    $scope.highSublThree = package.highSublThree;
 		$scope.highSublFour = package.highSublFour;
 		$scope.highSublFourB = package.highSublFourB;
 		$scope.highSublFive = package.highSublFive;
+
 		}).catch(function(error){
 			throw error;
 		});
@@ -122,7 +123,6 @@ angular.module('adviser.packageCms', [])
 		package.highSublFour= $scope.highSublFour;
 		package.highSublFourB= $scope.highSublFourB;
 		package.highSublFive= $scope.highSublFive;
-        console.log("update", package)
 		Package.updatePackage($routeParams.id, package)
 		.then(function (package) {
 			console.log(package);

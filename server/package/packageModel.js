@@ -59,6 +59,7 @@ var packageSchema = new mongoose.Schema({
   highSublFour: {type: Number, default: 0},
   highSublFourB: {type: Number, default: 0},
   highSublFive: {type: Number, default: 0}
+
 });
 
 packageSchema.plugin(autoIncrement.plugin,{model: 'Package',startAt: 1});

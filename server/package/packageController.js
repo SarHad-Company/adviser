@@ -43,9 +43,9 @@ module.exports = {
 			trblfive: package.trblfive,
 			status: package.status,
 			highSublThree: package.highSublThree,
-		    highSublFour: package.highSublFour,
-		    highSublFourB: package.highSublFourB,
-		    highSublFive: package.highSublFive
+		  highSublFour: package.highSublFour,
+		  highSublFourB: package.highSublFourB,
+		  highSublFive: package.highSublFive
 		});
 		newPackage.save(function (err, package) {
 			repsonseHandler(err, req, res, {status: 201, returnObj: package}, next);
@@ -117,9 +117,9 @@ module.exports = {
 			packageOne.trblfive = package.trblfive;
 			packageOne.status = package.status;
 			packageOne.highSublThree = package.highSublThree;
-		    packageOne.highSublFour = package.highSublFour;
-		    packageOne.highSublFourB = package.highSublFourB;
-		    packageOne.highSublFive = package.highSublFive;
+		  packageOne.highSublFour = package.highSublFour;
+		  packageOne.highSublFourB = package.highSublFourB;
+		  packageOne.highSublFive = package.highSublFive;
 			packageOne.save(function (err, savedPackage) {
 				repsonseHandler(err, req, res, {status: 201, returnObj: savedPackage}, next);
 			});
