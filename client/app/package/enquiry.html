@@ -4,7 +4,7 @@
     <h3 class="well">Enquiry Form</h3>
 	<div class="col-lg-12 well">
 	<div class="row">
-				<form>
+				<form name='roomForm'>
 					<div class="col-sm-12">
 					<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Room Selections</span></div></div>
 					<div class="row">
@@ -12,19 +12,31 @@
 			                <h5>Please, select the type and number of rooms that you want for your tour :</h5>
 			            </div>
         			</div>
-						<div class="row">
+						<div class="row" style="margin-bottom:20px">
 							<div class="col-sm-6">
-								<label>Check-in</label>
-								<input type="date" placeholder="Enter Checkin Date" ng-model="checkin">
+								 <md-datepicker 
+               ng-model="checkin" 
+               md-placeholder="Enter Date"
+               md-date-filter="onlyWeekendsPredicate" id="datepicker" name='checkinEnq' required></md-datepicker>
+               <!-- <div ng-messages='roomForm.checkinEnq.$error'>
+               	<div ng-message='required'>Please Select Checkin Date</div>
+               </div> -->
 							</div>
+
+
+
 							<div class="col-sm-6">
 							<label>Check-out</label>
-								<input type="date" placeholder="Enter Checkout Date" ng-model="checkout">
+								<!-- <input type="date" placeholder="Enter Checkout Date" ng-model="checkout"> -->
+								 <md-datepicker 
+						               ng-model="checkout" 
+						               md-placeholder="Enter Date"
+						                required></md-datepicker>
 							</div>
 						</div>	
 						<div class="row"><div class="col-sm-12">
 							<label>Hotel Option </label>
-							<select ng-model="hotel" ng-change="changedValue(hotel)">
+							<select ng-model="hotel" ng-change="changedValue(hotel)" required>
 								<option value="tourist">Tourist</option>
 								<option value="bronze">Bronze</option>
 								<option value="silver">Silver</option>
@@ -49,7 +61,7 @@
                     </thead>
                     <tbody><tr><td>Rooms:</td>
                     <td>
-                    <select name="num_sg" id="num_sg" class="num_habit" ng-model="num_sgl" ng-change="sglNumber(num_sgl)">
+                    <select name="num_sg" id="num_sg"  ng-model="num_sgl" ng-change="sglNumber(num_sgl)">
                                     <option value="0" ng-selected=
                                     "true">select number</option>
 					                <option value="1">1 room</option>
@@ -66,8 +78,8 @@
         
                     </td>
                     <td>
-                    <select name="num_db" id="num_db" class="num_habit" ng-model="num_dbl" ng-change="dblNumber(num_dbl)">
-                                    <option value="0"  ng-selected="true">select number</option>
+                    <select name="num_db" id="num_db"  ng-model="num_dbl" ng-change="dblNumber(num_dbl)">
+                              <option value="0"  ng-selected="true">select number</option>
 					                <option value="1">1 room</option>
 					                <option value="2">2 rooms</option>
 					                <option value="3">3 rooms</option>
@@ -80,7 +92,7 @@
 					                <option value="10">10 rooms</option>	
 					            </select></td>
                     <td>
-                    <select name="num_tr" id="num_tr" class="num_habit" ng-model="num_trbl" ng-change="trblNumber(num_trbl)" >
+                    <select name="num_tr" id="num_tr"  ng-model="num_trbl" ng-change="trblNumber(num_trbl)" >
                                     <option value="0" ng-selected="true">select number</option>
 					                <option value="1">1 rooms</option>
 					                <option value="2">2 rooms</option>
@@ -93,20 +105,7 @@
 					                <option value="9">9 rooms</option>
 					                <option value="10">10 rooms</option>	
 					            </select></td>
-                    <td class="hab_4 hidden">
-                    <select name="num_cd" id="num_cd" class="num_habit">
-					                <option value="0"></option>
-					                <option value="1">1 room</option>
-					                <option value="2">2 rooms</option>
-					                <option value="3">3 rooms</option>
-					                <option value="4">4 rooms</option>
-					                <option value="5">5 rooms</option>
-					                <option value="6">6 rooms</option>
-					                <option value="7">7 rooms</option>
-					                <option value="8">8 rooms</option>
-					                <option value="9">9 rooms</option>
-					                <option value="10">10 rooms</option>	
-					            </select></td>
+                    
                     </tr></tbody>
             
        
@@ -124,7 +123,7 @@
         <div id="singlePass"></div>
         <div id="doublePass"></div>
         <div id="triplePass" style="margin-bottom:15px"></div>				
-					<button type="button" class="btn btn-md btn-info" ng-click="calcCost()">Calculate Cost</button>		
+					<button type="submit" class="btn btn-md btn-info" ng-click="calcCost()" id="calc">Calculate Cost</button>		
 					<div class="row">
 						<div class="col-sm-4">
 						  
@@ -133,56 +132,39 @@
 						</div>				
 					</div>
 				</form> 
-		   </div>   
+		   <button type="button" class="btn btn-md btn-info pull-right" ng-click="continue()" id="continue" >Continue</button>   
+		   </div>
 	</div>
 		<div class="col-lg-12 well">
 		<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Passenger Info</span></div></div>
 	<div class="row">
-				<form>
+				<form name='paxForm'>
 					<div class="col-sm-12">
-					<div class="row"><div class="col-lg-12"><label>Number Of Passengers</label>
-					<select id="pass">
-						<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
-								<option>9</option>
-								<option>10</option>
-								<option>11</option>
-								<option>12</option>
-								<option>13</option>
-								<option>14</option>
-								<option>15</option>
-								<option>16</option>
-								<option>17</option>
-								<option>18</option>
-								<option>20</option>
-								<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
-					</select></div></div>
+					<div class="row"><div class="col-lg-12"><label>Number Of Passengers : </label> <label class="text-primary">   {{pax}}</label>
+
+					</div></div>
 
 					<div class="passenger" style="border-width:1px; border-color:#000; border-style:solid;margin-bottom: 10px">
 						<div class="row" style="padding-top:8px;margin-left:2px">
 							<div class="col-sm-4 form-group">
-								<label>First Name</label>
-								<input type="text" placeholder="Enter First Name Here.." class="form-control" ng-model="ownerFirst">
-							</div>
+								<label>Leader First Name</label>
+								<input type="text" placeholder="Enter First Name Here.." class="form-control" ng-model="ownerFirst" name='firstEnq' required />
+				<!-- <div ng-messages='paxForm.firstEnq.$error' style="color:maroon" ng-if='paxForm.firstEnq.$dirty'>
+               	<div ng-message='required'>Please Enter Your First Name</div> -->
+               </div>
 							<div class="col-sm-4 form-group">
-								<label>Last Name</label>
-								<input type="text" placeholder="Enter Last Name Here.." class="form-control" ng-model="ownerLast">
+								<label>Leader Last Name</label>
+								<input type="text" placeholder="Enter Last Name Here.." class="form-control" ng-model="ownerLast" required />
 							</div>
 							<div class="col-sm-4 form-group">
 								<label>Passport Number</label>
-								<input type="text" placeholder="Enter Passport Number" class="form-control" ng-model="ownerPassport">
+								<input type="text" placeholder="Enter Passport Number" class="form-control" ng-model="ownerPassport" required />
 							</div>		
 						</div>						
 						<div class="row" style="margin-left:2px">
 							<div class="col-sm-4">
 							<label>Birth Date</label>
-								<input type="date" placeholder="Birth Date" ng-model='ownerBirthDate' />
+								<input type="date" placeholder="Birth Date" ng-model='ownerBirthDate' required />
 							</div>	
 							<div class="col-sm-4 form-group">
 							<label>Gender </label>
@@ -196,7 +178,7 @@
 						</div>
 						<div class="row" style="margin-bottom:10px">
 						<div class="col-sm-12">
-						<input type="checkbox" />
+						<input type="checkbox" required />
 						Yes, I guarantee that the details of the passengers are those that appear on their passports. 
 							
 						</div>
@@ -205,24 +187,104 @@
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>City/Town</label>
-								<input type="text" placeholder="Enter City" class="form-control" ng-model="city">
+								<input type="text" placeholder="Enter City" class="form-control" ng-model="city" required>
 							</div>		
 							<div class="col-sm-6 form-group">
 								<label>Country</label>
-								<input type="text" placeholder="Enter Country" class="form-control" ng-model="country">
+								<input type="text" placeholder="Enter Country" class="form-control" ng-model="country" required>
 							</div>	
 						</div>	
 						<div class="row">					
 					<div class="col-sm-6 form-group">
 						<label>Mobile Phone Number</label>
-						<input type="text" placeholder="Enter Phone Number" class="form-control" ng-model="mobile">
+						<input type="text" name= "mobile" class="form-control" ng-model="mobile" id="mobile" required>
 					</div>		
 					<div class="col-sm-6 form-group">
 						<label>Email Address</label>
-						<input type="text" placeholder="Enter Email Address Here.." class="form-control" ng-model="email">
+						<input type="text" placeholder="Enter Email Address Here.." class="form-control" ng-model="email" required>{{message}}
 					</div>
 					</div>	
-					<button type="button" class="btn btn-md btn-info" ng-click="addEnquiry()">Continue</button>					
+					<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Borders & Flights</span></div></div>
+						<h4 class="text-info">Arrival Info</h4>
+					<div style="border-width:1px; border-color:#000; border-style:solid;margin-bottom: 10px;padding-left:10px; padding-top:10px">
+					<div class="row">
+						<div class="col-sm-4 form-group">
+							<label>Borders Or Flight</label>
+							<select class="form-control" id="flight"><option value="Alia Queen airport">Alia Queen airport (AMM)</option>
+									<option value="Marka airport">Marka airport (ADJ)</option>
+									<option value="Aqaba airport">Aqaba airport (AQJ)</option>
+									<option value="Araba border">Araba border (Aqaba)</option>
+									<option value="King Hussein bridge">King Hussein bridge</option>
+									<option value="Sheikh Hussein border">Sheikh Hussein border</option>
+									<option value="Cairo international airport">Cairo international airport (CAI)</option>
+									<option value="Beirut airport Rafic Hariri international">Beirut airport Rafic Hariri international (BEY)</option>
+									<option value="Dubai Airport">Dubai Airport (DXB)</option>
+									<option value="Dubai Airport">Dubai Airport (DWC)</option>
+									<option value="other">other</option></select>
+									</div>
+									<div class="col-sm-4 form-group">
+									<label>Port</label>
+									<input class="form-control" type="text" ng-model="port" placeholder="Enter Port" />
+									</div>
+									<div  class="col-sm-4 form-group">
+									<label>Carrier</label>
+									<input class="form-control" placeholder="Enter Carrier" type="text" ng-model="carrier"/>
+									</div>
+									</div>
+									<div class="row">
+									
+									<div class="col-sm-4 form-group">
+									<label>Flight No.</label>
+									<input class="form-control" placeholder="Enter Flight No." type="text" ng-model="flightNo" />
+									</div>
+									<div class="col-sm-4 form-group">
+									<label>Arrival Time</label>
+									<input class="form-control" type="time" ng-model="arrTime" />
+
+						</div>
+					</div>
+					</div>
+						<h4 class="text-info">Departure Info</h4>
+						<div style="border-width:1px; border-color:#000; border-style:solid;margin-bottom: 10px; padding-left:10px; padding-top:10px">
+
+					<div class="row">
+						<div class="col-sm-4 form-group">
+							<label>Borders Or Flight</label>
+							<select id="flight1" class="form-control"><option value="Alia Queen airport">Alia Queen airport (AMM)</option>
+									<option value="Marka airport">Marka airport (ADJ)</option>
+									<option value="Aqaba airport">Aqaba airport (AQJ)</option>
+									<option value="Araba border">Araba border (Aqaba)</option>
+									<option value="King Hussein bridge">King Hussein bridge</option>
+									<option value="Sheikh Hussein border">Sheikh Hussein border</option>
+									<option value="Cairo international airport">Cairo international airport (CAI)</option>
+									<option value="Beirut airport Rafic Hariri international">Beirut airport Rafic Hariri international (BEY)</option>
+									<option value="Dubai Airport">Dubai Airport (DXB)</option>
+									<option value="Dubai Airport">Dubai Airport (DWC)</option>
+									<option value="other">other</option></select>
+									</div>
+									<div class="col-sm-4 form-group">
+									<label>Port</label>
+									<input class="form-control" type="text" ng-model="port1" placeholder="Enter Port" />
+									</div>
+									<div  class="col-sm-4 form-group">
+									<label>Carrier</label>
+									<input class="form-control" placeholder="Enter Carrier" type="text" ng-model="carrier1"/>
+									</div>
+									</div>
+									<div class="row">
+									
+									<div class="col-sm-4 form-group">
+									<label>Flight No.</label>
+									<input class="form-control" placeholder="Enter Flight No." type="text" ng-model="flightNo1" />
+									</div>
+									<div class="col-sm-4 form-group">
+									<label>Departure Time</label>
+									<input class="form-control" type="time" ng-model="arrTime1" />
+
+						</div>
+					</div></div>
+
+					<button type="submit" class="btn btn-md btn-info pull-right" ng-click="addEnquiry()" id="cont">Continue</button>					
 					</div>
 				</form> 
 				</div>
@@ -359,7 +421,7 @@
 						  </table>
 						  </div>
 						  </div>  
-						  <div class='row'>
+						 <!--  <div class='row'>
 						  <div class='col-sm-6'>
 						  <table class="table table-responsive table-bordered">
 						    <thead>
@@ -398,8 +460,8 @@
 						      
 						    </tbody>
 						  </table>
-						  </div>
-						  </div>
+						  </div> -->
+						  <!-- </div> -->
 						  <div class="row" style="margin-bottom: 15px">
 						  	<div class="col-sm-12">
 						  		
@@ -415,7 +477,8 @@ If you experience any difficulties with completing your payment or booking onlin
 <input  type="checkbox" />
  I have read and agree to the <a href="/#/terms-and-conditions">Terms & Conditions</a>.
  <br/>
- <button ng-click="book()" class="btn btn-md btn-info">Book Now</button> 
+ <button ng-click="book()" class="btn btn-md btn-info"  id="book">Book Now</button> 
+
 						  	
 						  </div></div>
 

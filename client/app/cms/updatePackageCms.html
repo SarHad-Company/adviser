@@ -144,9 +144,16 @@
             <td></td>
         </tr>
         <tr>
-            <th valign="top">Places:</th>
+            <th valign="top">Available Day:</th>
             <td align="left" class="paddBot11">
-            <input type="text" class="form-control" ng-model="places"/></td>
+            <select id="availableDay"><option value="6">Saturday</option>
+                  <option value="0">Sunday</option>
+                  <option value="1">Monday</option>
+                  <option value="2">Tuesday</option>
+                  <option value="3">Wednesday</option>
+                  <option value="4">Thursday</option>
+                  <option value="5">Friday</option>
+                  <option value="7">Any Day</option></select></td>
             <td></td>
         </tr>
         <tr>
@@ -196,11 +203,18 @@
                     <td><input type="number" class="form-control" ng-model="trblfourb"/></td>
                     <td><input type="number" class="form-control" ng-model="trblfive"/></td>
                   </tr>
+                  <tr>
+                    <td>High Season Supl</td>
+                    <td><input type="number" class="form-control" ng-model="highSublThree"/></td>
+                    <td><input type="number" class="form-control" ng-model="highSublFour"/></td>
+                    <td><input type="number" class="form-control" ng-model="highSublFourB"/></td>
+                    <td><input type="number" class="form-control" ng-model="highSublFive"/></td>
+                  </tr>
                 </tbody>
               </table></td>
             <td></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <th valign="top">Start Date:</th>
             <td align="left" class="paddBot11">
            <md-datepicker 
@@ -211,7 +225,7 @@
                md-placeholder="Enter end date"></md-datepicker>
             </td>
             <td></td>
-        </tr>
+        </tr> -->
         <tr>
         <th valign="top">Outline*:</th>
             <td align="left" class="paddBot11"><textarea class="form-control" rows="5" ng-model="outline"></textarea></td>
@@ -220,9 +234,10 @@
        <tr>
         <th valign="top">Hotels:</th>
             <td align="left" class="paddBot11">
-            3Star<textarea style="width:100px" rows="3" ng-model="three"></textarea>
-            4Star<textarea style="width:100px" rows="3" ng-model="four"></textarea>
-            5Star<textarea style="width:100px" rows="3" ng-model="five"></textarea></td>
+             tourist<textarea style="width:100px" rows="3" ng-model="three"></textarea>
+            bronze<textarea style="width:100px" rows="3" ng-model="four"></textarea>
+            silver<textarea style="width:100px" rows="3" ng-model="fourB"></textarea>
+            gold<textarea style="width:100px" rows="3" ng-model="five"></textarea></td>
             <td></td>
        </tr>
         <tr>
@@ -288,11 +303,15 @@
         </td>
         <td></td>
     </tr>
+     <tr><th>Status*:</th><td>
+            
+              <select id="status"><option value='active'>Active</option><option value='notActive'>Not Active</option></select></td><td></td></tr>
+    <tr>
     <tr>
         <th>&nbsp;</th>
         <td valign="top">
-            <button ng-click="updatePackageInfo()">update</button>
-            <button ng-click="deletePackage()">delete</button>
+            <button ng-click="updatePackageInfo()" class="btn btn-info" style="margin-top:20px ">update</button>
+            <button ng-click="deletePackage()" class="btn btn-info" style="margin-top:20px; margin-left:20px ">delete</button>
         </td>
         <td>
         </td>

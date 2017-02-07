@@ -42,15 +42,16 @@ angular.module('adviser.packageCms', [])
 		$scope.type = package.type;
 		$scope.include = package.include;
 		$scope.exclude = package.exclude;
-		$scope.places = package.places;
+		$('#availableDay').val(package.places);
 		$scope.days = package.days;
 		$scope.nights = package.nights;
 		$scope.price = package.price;
 		$scope.three = package.threeStarHotels;
 		$scope.four = package.fourStarHotels;
+		$scope.fourB = package.fourStarBHotels;
 		$scope.five = package.fiveStarHotels;
-		$scope.startDate = package.startAvailableDate;
-		$scope.endDate = package.endAvailableDate;
+		// $scope.startDate = package.startAvailableDate;
+		// $scope.endDate = package.endAvailableDate;
 		$scope.mainfile = package.mainPhoto;
 		$scope.photos = package.photos;
 		$scope.childrenPrice = package.childPrice;
@@ -66,6 +67,11 @@ angular.module('adviser.packageCms', [])
 		$scope.trblfour = package.trblfour;
 		$scope.trblfourb = package.trblfourb;
 		$scope.trblfive = package.trblfive;
+    $("#status").val(package.status);
+    $scope.highSublThree = package.highSublThree;
+		$scope.highSublFour = package.highSublFour;
+		$scope.highSublFourB = package.highSublFourB;
+		$scope.highSublFive = package.highSublFive;
 
 		}).catch(function(error){
 			throw error;
@@ -87,15 +93,16 @@ angular.module('adviser.packageCms', [])
 		package.type= $scope.type;
 		package.include= $scope.include;
 		package.exclude=$scope.exclude;
-		package.places= $scope.places;
+		package.places= $('#availableDay').val();
 		package.days= $scope.days;
 		package.nights= $scope.nights;
 		package.price= $scope.price;
 		package.threeStarHotels= $scope.three;
 		package.fourStarHotels= $scope.four;
+		package.fourStarBHotels= $scope.fourB;
 		package.fiveStarHotels= $scope.five;
-		package.startAvailableDate= $scope.startDate;
-		package.endAvailableDate= $scope.endDate;
+		// package.startAvailableDate= $scope.startDate;
+		// package.endAvailableDate= $scope.endDate;
 		package.mainPhoto= $scope.mainfile;
 		package.photos= $scope.photos;
 		package.childPrice= $scope.childrenPrice;
@@ -111,7 +118,11 @@ angular.module('adviser.packageCms', [])
 		package.trblfour= $scope.trblfour;
 		package.trblfourb= $scope.trblfourb;
 		package.trblfive= $scope.trblfive;
-        console.log("update", package)
+		package.status= $("#status").val();
+		package.highSublThree= $scope.highSublThree;
+		package.highSublFour= $scope.highSublFour;
+		package.highSublFourB= $scope.highSublFourB;
+		package.highSublFive= $scope.highSublFive;
 		Package.updatePackage($routeParams.id, package)
 		.then(function (package) {
 			console.log(package);

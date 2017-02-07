@@ -19,15 +19,16 @@ angular.module('adviser.addPackageCms', [])
 		package.type= $scope.type;
 		package.include= $scope.include;
 		package.exclude=$scope.exclude;
-		package.places= $scope.places;
+		package.places= $('#availableDay').val();
 		package.days= $scope.days;
 		package.nights= $scope.nights;
 		package.price= $scope.price;
 		package.threeStarHotels= $scope.three;
 		package.fourStarHotels= $scope.four;
 		package.fiveStarHotels= $scope.five;
-		package.startAvailableDate= $scope.startDate;
-		package.endAvailableDate= $scope.endDate;
+		package.fourStarBHotels= $scope.fourB;
+		// package.startAvailableDate= $scope.startDate;
+		// package.endAvailableDate= $scope.endDate;
 		package.mainPhoto= $scope.mainfile;
 		package.photos= $scope.photos;
 		package.childPrice= $scope.childrenPrice;
@@ -43,6 +44,11 @@ angular.module('adviser.addPackageCms', [])
 		package.trblfour= $scope.trblfour;
 		package.trblfourb= $scope.trblfourb;
 		package.trblfive= $scope.trblfive;
+		package.status= $("#status").val();
+		package.highSublThree= $scope.highSublThree;
+		package.highSublFour= $scope.highSublFour;
+		package.highSublFourB= $scope.highSublFourB;
+		package.highSublFive= $scope.highSublFive;
 		Package.addNewPackage(package)
 		.then(function(package){
 			console.log(package);

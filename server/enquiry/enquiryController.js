@@ -17,7 +17,14 @@ module.exports = {
 			email: enquiry.email,
 			totalCost: enquiry.totalCost,
 			passengers: enquiry.passengers,
-			package: enquiry.packageId
+			package: enquiry.packageId,
+			arrivalInfo: enquiry.arrivalInfo,
+			departureInfo: enquiry.departureInfo,
+			cost: enquiry.cost,
+			adults: enquiry.adults,
+			children: enquiry.children,
+			pax: enquiry.pax,
+			packageName: enquiry.packageName
 		});
 		newEnquiry.save(function (err, enquiry) {
 			repsonseHandler(err, req, res, {status: 201, returnObj: enquiry}, next);

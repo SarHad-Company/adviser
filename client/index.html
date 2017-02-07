@@ -11,6 +11,7 @@
       <!-- angular material --> 
       <link rel="stylesheet" href="lib/angular-material/angular-material.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="lib/intl-tel-input/build/css/intlTelInput.css" />
       <link rel="stylesheet" type="text/css" href="styles/style.css"/>
       <link href="styles/animate.css" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,101 +19,11 @@
       <title>Adviser</title>
    </head>
    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-      <!-- <nav class="navbar navbar-default navbar-fixed-top back">
-        <div class="container-fluid">
-          <div class="navbar-header" style="height: 190px">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>                        
-            </button>
-            <a class="navbar-brand" href="#myPage"><img src="../images/logo4.png" alt="adviser" width="185px" height="170px"></a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav center-block back">
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">JORDAN</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">DESTINATIONS
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu back">
-                  <li><a href="#">Jordan</a></li>
-                  <li><a href="#">Egypt</a></li>
-                  <li><a href="#">Dubai<li><a href="#">ABOUT US</a></li></a></li> 
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">SPECIAL PROMOTIONS
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu back">
-                  <li><a href="#">Merchandise</a></li>
-                  <li><a href="#">Extras</a></li>
-                  <li><a href="#">Media</a></li> 
-                </ul>
-              </li>
-              <li><a href="#">TOURS</a></li>
-              <li><a href="#">ABOUT US</a></li>
-              <li><a href="#">CONTACT US</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-            </ul>
-          </div>
-        </div>
-      </nav> -->
-    <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+    
     <div class="row">
       <div ng-view></div>
     </div>
-     <!--  <footer class="back panel-footer">
-        <div class="row">
-          <div class="col-md-5">
-            <p style="font-size:15px"><strong>About Adviser Tours</strong></p>
-            <p style="font-size: 12px">Adviser Tours is alocal ground handler in jordan , specialized in incoming services, working with the most important hotels in the country and providing all kind of the touristic services,our company,created by ahmad shanti (Jordan) and pedro alcaina is dedicated basically for incoming services , from west-europe,spain,south-america, and we will be proud to attend your needs in our country please do not hesitate to contact us. for further information will be a pleasure to attend you personally 
-            Pedro alcaina / Ahmad shanti</p>
-          </div>
-          <a id="return-to-top" class="col-md-1 text-center up-arrow" title="TO TOP">
-            <span class="glyphicon glyphicon-chevron-up"></span>
-          </a>
-          <div class="col-md-2">
-            <ul class="address">
-              <li><p style="font-size: 15px"><strong>Address</strong></p></li>
-              <li>Adviser Tours.</li>
-              <li>P.O.BOX 941759 Amman,11194</li>
-              <li>Jordan</li>
-              <li class="fa fa-phone">  +962 6 5538325</li><br>
-              <li class="fa fa-fax">  +962 6 5523411</li><br>
-              <li class="fa fa-envelope-o">  info@advisertours.com</li>
-            </ul>
-          </div>
-          <div class="col-md-2 center-block back">
-            <a href="https://www.facebook.com"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-            <a href="https://twitter.com"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-            <a href="https://plus.google.com"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-          </div>
-          <div class="col-md-2">
-            <div class="copyright back">
-              Copy right for SarHad © 2016
-            </div>
-            <div class="attribution back">
-              Developer by  <a target="_blank" href="#">SarHad team</a> .
-            </div>
-          </div>
-         </div>
-        </footer> -->
-       <!--  <script>
-          // Hover drop down menu list
-          $('ul.nav li.dropdown').hover(function() {
-            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-          }, function() {
-            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-          });
-          //return to top of the page
-          $('#return-to-top').click(function() { // When arrow is clicked
-              $('body,html').animate({
-                  scrollTop : 0 // Scroll to top of body
-              }, 500);
-          });
-          </script> -->
+          <script src="lib/intl-tel-input/build/js/intlTelInput.js"></script>
           <script src="lib/angular/angular.js"></script>
           <script src="lib/angular-route/angular-route.js"></script>
           <script src="lib/ng-file-upload/ng-file-upload-shim.min.js"></script>
@@ -124,6 +35,12 @@
           <script src="lib/tinymce/tinymce.js"></script>
           <script src="lib/angular-ui-tinymce/src/tinymce.js"></script>
           <script src="lib/angularUtils-pagination/dirPagination.js"></script>
+          <script src="lib/angular-messages/angular-messages.js"></script>
+          <script src="lib/intl-tel-input/lib/libphonenumber/build/utils.js"></script>
+          <script src="lib/international-phone-number/releases/international-phone-number.js"></script>
+          <script src="lib/moment/moment.js"></script>
+          <script src="lib/moment/locale/*.js"></script>
+          <script src="lib/moment/min/moment-with-locales.js"></script>
          <!--  our controllers -->
           <script src="app/main/header.js"></script>
           <script src="app/destination/destination.js"></script>
@@ -137,7 +54,6 @@
           <script src="app/cms/packageCms.js"></script>
           <script src="app/cms/AddDestinationCms.js"></script>
           <script src="app/cms/addJordanPlaceCms.js"></script>
-          <script src="app/cms/addJordanCms.js"></script>
           <script src="app/cms/addPackageCms.js"></script>
           <script src="app/services/services.js"></script>
           <script src="app/app.js"></script>

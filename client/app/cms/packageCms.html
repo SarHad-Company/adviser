@@ -63,7 +63,7 @@
         <tbody><tr style="color:White;background-color:#A55129;font-weight:bold;">
             <th scope="col">Action</th><th scope="col">ID</th><th scope="col">Package Name</th><th scope="col">Destination</th><th scope="col">Outline</th><th scope="col">Status</th>
         </tr><tr ng-repeat="package in data | filter:search" style="color:#8C4510;background-color:#FFF7E7;" >
-            <td><a href="/#/cms/packages/{{package.type}}/{{package._id}}"><input type="image" src="../../images/Edit.png" alt="Edit"  style="border-width:0px;"></a></td><td>{{package._id}}</td><td>{{package.packageName}}</td><td>{{package.destination}}</td><td>{{package.outline}}</td><td>Active</td>
+            <td><a href="/#/cms/packages/{{package.type}}/{{package._id}}"><input type="image" src="../../images/Edit.png" alt="Edit"  style="border-width:0px;"></a></td><td>{{package._id}}</td><td>{{package.packageName}}</td><td>{{package.destination}}</td><td>{{package.outline}}</td><td>{{package.status}}</td>
         </tr>
         <tr align="center" style="color:#8C4510;">
             <td colspan="6"><table border="0">

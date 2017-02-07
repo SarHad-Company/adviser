@@ -13,16 +13,16 @@ angular.module('adviser', [
   'adviser.addJordanPlaceCms',
   'adviser.addDestinationCms',
   'adviser.addPackageCms',
-  'adviser.addJordanCms',
   'ngRoute',
   'ngFileUpload',
   'ui.tinymce',
   'ngMaterial',
   'angularUtils.directives.dirPagination',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngMessages'
 ])
 .config(function ($routeProvider, $httpProvider) {
-
+ 
   $routeProvider
   .when('/jordan', {
     templateUrl: 'app/jordan/jordan.html',
@@ -91,10 +91,6 @@ angular.module('adviser', [
   .when('/cms/addPackage', {
     templateUrl: 'app/cms/addPackageCms.html',
     controller: 'addPackageCmsController'
-  })
-  .when('/cms/jordan', {
-    templateUrl: 'app/cms/addJordanCms.html',
-    controller: 'addJordanCmsController'
   })
   .when('/destinations/:destinationName/:id', {
     templateUrl: 'app/destination/destination.html',
