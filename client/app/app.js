@@ -21,8 +21,8 @@ angular.module('adviser', [
   'ui.bootstrap',
   'ngMessages'
 ])
-.config(function ($routeProvider, $httpProvider) {
- 
+.config(function ($routeProvider, $httpProvider, $locationProvider) {
+  $locationProvider.hashPrefix('');
   $routeProvider
   .when('/jordan', {
     templateUrl: 'app/jordan/jordan.html',
