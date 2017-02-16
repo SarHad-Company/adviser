@@ -5,7 +5,7 @@ var nodemailer = require('nodemailer');
 
 var storage = multer.diskStorage({ 
 		destination: function (req, file, cb) {
-				cb(null, './client/uploads/');
+				cb(null, '/opt/live/client/uploads/');
 		},
 		filename: function (req, file, cb) {
 				var datetimestamp = Date.now();
