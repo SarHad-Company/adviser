@@ -74,11 +74,12 @@
     name="file" 
     ngf-pattern="'image/*'"
     accept="image/*" 
-    ngf-max-size="0.3MB" 
+    ngf-max-size="20MB" 
     ng-change="submit()"
     /><img id="wait" src="../../images/bx_loader.gif" >
     <img style="width:100px;" ng-show="!!file" ngf-thumbnail="file"/><br>
     <i ng-show="file.$error.maxSize">File too large 
+
     {{file.size / 1000000|number:1}}MB: max 20M</i>
     <p>{{progress}}</p>
 </td> <td></td></tr>
