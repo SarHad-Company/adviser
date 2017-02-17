@@ -1,6 +1,5 @@
 angular.module('adviser.packageInfo', [])
 .controller('packageInfoController', function($scope, $routeParams, Package){
-
 		$scope.myInterval = 3000;
 		$scope.total = 0;
 		$scope.sgl = 0;
@@ -49,16 +48,16 @@ angular.module('adviser.packageInfo', [])
 
 	// validate email
 	function validateEmail(email) {
-	  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	  if (re.test(email)){
-	    return true;
-	  }
-	  else {
-	    return false;
-	 	}
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if (re.test(email)){
+			return true;
+		}
+		else {
+			return false;
+		}
 
 	}
-		
+		//calc the cost
 	$scope.calcCost = function (){
 		var b = true;
 		var bo = true;
@@ -143,20 +142,20 @@ angular.module('adviser.packageInfo', [])
 								$("#passenger").append(t);
 							}
 							
-					  }
-          }
+						}
+					}
 		}
 
 	}
-  
-  $scope.continue = function (){
-  	if ($scope.total === 0){
-  		alert("Please Select Room Before")
-  	}else {
-	  	$("#calc").prop("disabled", true);
-	  	$("#cont").prop("disabled", false);		
-  	}
-  }
+	
+	$scope.continue = function (){
+		if ($scope.total === 0){
+			alert("Please Select Room Before")
+		}else {
+			$("#calc").prop("disabled", true);
+			$("#cont").prop("disabled", false);		
+		}
+	}
 	$scope.changedValue = function (hotel){
 		$("#singlePass").html(" ");
 		$("#doublePass").html(" ");
@@ -211,7 +210,7 @@ angular.module('adviser.packageInfo', [])
 	$scope.dblNumber = function (dbl_num){
 		if ($scope.dbl === 0){
 			alert("This Option Is Not Exist");
-		  $scope.num_dbl = "0";
+			$scope.num_dbl = "0";
 		} else{
 			t='<div class="row" id="double" style="margin-bottom:10px; margin-top: 3px"><div class="col-sm-12"><table class="tabel tabel-responsive"><thead><tr><th></th><th>Double <img src="../../images/camas.png"><img src="../../images/camas.png"></th></tr><tr></tr></thead><tbody><tr><td> Passenger Age: </td><td> <input type="text" class="dbPass" /> </td></tr><tr><td> Passenger Age: </td><td> <input type="text" class="dbPass" /> </td></tr></tbody></table></div></div>'
 			$("#doublePass").html(" ");
@@ -226,7 +225,7 @@ angular.module('adviser.packageInfo', [])
 	$scope.trblNumber = function (trbl_num){
 		if ($scope.trbl === 0){
 			alert("This Option Is Not Exist");
-		  $scope.num_trbl = "0";
+			$scope.num_trbl = "0";
 		} else{
 			t=' <div class="row" id="triple"> <div class="col-sm-12"><table class="tabel tabel-responsive trTable"><thead><tr><th></th><th>Triple <img src="../../images/camas.png"><img src="../../images/camas.png"><img src="../../images/camas.png"></th></tr><tr></tr></thead><tbody><tr><td> Passenger Age: </td><td> <input type="text" class="trPass" /> </td></tr><tr><td> Passenger Age: </td><td> <input type="text" class="trPass"/> </td></tr><tr><td> Passenger Age: </td><td> <input type="text" class="trPass" /> </td></tr></tbody></table></div></div>'
 			$("#triplePass").html(" ");

@@ -41,9 +41,11 @@ angular.module('adviser.addDestinationCms', [])
 				$('#wait').hide();
 			}else{
 				$window.alert('An error occured!!!')
+				console.log(resp)
 			}
 		},function (resp) { //catch error
 			$window.alert('Error status: ' + resp.status);
+			console.log(resp)
         }, function (evt) { 
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             $scope.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
