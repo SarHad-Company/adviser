@@ -29,10 +29,10 @@ var smtpTransport = nodemailer.createTransport({
     }
 });
 
-var sendMail = function(content, next) {
+var sendMail = function(content, to, next) {
 		var mailOptions = {
         from:YOUR_NAME + ' <' + EMAIL_ACCOUNT_USER + '>',
-        to: 'e.saryaa@gmail.com',
+        to: to,
         subject: 'Message from Adviser',
         text: 'hello sooooooooooos',
         html: content
@@ -67,7 +67,7 @@ module.exports = {
     var enquiry = req.body.enquiry;
     var package = req.body.package;
         var html ='<table style="border-style:solid; border-width:2px; background-color:#BBE4F3 "><thead><tr><th><img src="http://advisertours.com/sites/default/files/adviser%20Tours.png"  style="display:block"></th></tr><tr><th><h2>Booking Confirmed</h2></th></tr></thead><tbody><tr><td>Booking No.</td><td>' + enquiry._id + '</td></tr><tr><td>Tour No.</td><td> ' + enquiry.package + '</td></tr><tr><td>Tour Name : </td><td> ' + package.packageName + '</td></tr><tr><td>Tour Duration : </td><td> ' + package.days + ' days</td></tr><tr><td>Booking Date : </td><td> ' + enquiry.enquiryDate + '</td></tr><tr><td>Checkin Date : </td><td> ' + enquiry.checkin + '</td></tr><tr><td>Hotel Option : </td><td> ' + enquiry.hotelType + '</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td><b>Rooms</b></td></tr><tr><td>Single Room : </td><td> ' + enquiry.room.single + '</td></tr><tr><td>Double Room : </td><td> ' + enquiry.room.double + '</td></tr><tr><td>Triple Room : </td><td> ' + enquiry.room.triple + '</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td><b>Guest Info<b></td></tr><tr><td>Name : </td><td> ' + enquiry.passengers[0].firstName + enquiry.passengers[0].lastName +'</td></tr><tr><td>Passport Number : </td><td>' + enquiry.passengers[0].passport + '</tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td><b>Total Cost</b></td></tr><tr><td> ' + enquiry.totalCost + '</td></tr></tbody></table><table style="border-style:solid; border-width:2px"><thead><th>Adviser Travel & Tourism</th></thead><tbody><tr></tr></tbody><tr><td>Adviser Tours.P.O.BOX 941759 Amman,11194 Jordan</td></tr><tr><td>+962 6 5538325</td></tr><tr><td>+962 6 5523411</td></tr><tr> <td>info@advisertours.com</td></tr></table>'
-    sendMail(html, function(err, response){
+    sendMail(html, enquiry.email, function(err, response){
       if(err){
         console.log(err);
         return res.send('ERROR');

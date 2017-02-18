@@ -47,6 +47,9 @@ angular.module('adviser', [
     templateUrl: 'app/package/enquiry.html',
     controller: 'packageInfoController'
   })
+  .when('/confirm', {
+    templateUrl: 'app/package/confirm.html'
+  })
   .when('/cms', {
       templateUrl: 'app/cms/login.html',
       controller: 'cmsController'
