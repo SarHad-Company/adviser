@@ -1,6 +1,5 @@
 angular.module('adviser.packageInfo', [])
 .controller('packageInfoController', function($scope, $routeParams, Package, $location){
-
 		$scope.myInterval = 3000;
 		$scope.total = 0;
 		$scope.sgl = 0;
@@ -58,7 +57,7 @@ angular.module('adviser.packageInfo', [])
 		}
 
 	}
-		
+		//calc the cost
 	$scope.calcCost = function (){
 		var b = true;
 		var bo = true;
@@ -161,6 +160,7 @@ angular.module('adviser.packageInfo', [])
 		// 	$("#cont").prop("disabled", false);		
 		// }
 	}
+	
 	$scope.changedValue = function (hotel){
 		$("#singlePass").html(" ");
 		$("#doublePass").html(" ");
