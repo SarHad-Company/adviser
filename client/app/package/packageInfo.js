@@ -1,10 +1,7 @@
 angular.module('adviser.packageInfo', [])
-<<<<<<< 24b1de54ba50e44b4f293ca978aee340fa9ab239
-.controller('packageInfoController', function($scope, $routeParams, Package){
-=======
+
 .controller('packageInfoController', function($scope, $routeParams, Package, $location){
 
->>>>>>> update enquiry email
 		$scope.myInterval = 3000;
 		$scope.total = 0;
 		$scope.sgl = 0;
@@ -159,18 +156,11 @@ angular.module('adviser.packageInfo', [])
 	$scope.continue = function (){
 		if ($scope.total === 0){
 			alert("Please Select Room Before")
-<<<<<<< 24b1de54ba50e44b4f293ca978aee340fa9ab239
-		}else {
-			$("#calc").prop("disabled", true);
-			$("#cont").prop("disabled", false);		
-		}
-=======
 		}
 		// else {
 		// 	$("#calc").prop("disabled", true);
 		// 	$("#cont").prop("disabled", false);		
 		// }
->>>>>>> update enquiry email
 	}
 	$scope.changedValue = function (hotel){
 		$("#singlePass").html(" ");
