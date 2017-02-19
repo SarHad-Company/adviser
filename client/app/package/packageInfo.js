@@ -162,6 +162,7 @@ angular.module('adviser.packageInfo', [])
 		// 	$("#cont").prop("disabled", false);		
 		// }
 	}
+	
 	$scope.changedValue = function (hotel){
 		$("#singlePass").html(" ");
 		$("#doublePass").html(" ");
