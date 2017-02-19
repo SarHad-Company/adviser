@@ -1,5 +1,7 @@
 angular.module('adviser.packageInfo', [])
+
 .controller('packageInfoController', function($scope, $routeParams, Package, $location){
+
 		$scope.myInterval = 3000;
 		$scope.total = 0;
 		$scope.sgl = 0;
