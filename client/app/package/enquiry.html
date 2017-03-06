@@ -1,26 +1,26 @@
 <div ng-include="'../header.html'">                    
 </div>
 <div class="container main-div enquiry">
-    <h3 class="well">Enquiry Form</h3>
+		<h3 class="well">Enquiry Form</h3>
 	<div class="col-lg-12 well">
 	<div class="row">
 				<form name='roomForm'>
 					<div class="col-sm-12">
 					<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Room Selections</span></div></div>
 					<div class="row">
-			            <div class="col-sm-12">
-			                <h5>Please, select the type and number of rooms that you want for your tour :</h5>
-			            </div>
-        			</div>
+									<div class="col-sm-12">
+											<h5>Please, select the type and number of rooms that you want for your tour :</h5>
+									</div>
+							</div>
 						<div class="row" style="margin-bottom:20px">
 							<div class="col-sm-6">
 								 <md-datepicker 
-               ng-model="checkin" 
-               md-placeholder="Enter Date"
-               md-date-filter="onlyWeekendsPredicate" id="datepicker" name='checkinEnq' required></md-datepicker>
-               <!-- <div ng-messages='roomForm.checkinEnq.$error'>
-               	<div ng-message='required'>Please Select Checkin Date</div>
-               </div> -->
+							 ng-model="checkin" 
+							 md-placeholder="Enter Date"
+							 md-date-filter="onlyWeekendsPredicate" id="datepicker" name='checkinEnq' required></md-datepicker>
+							 <!-- <div ng-messages='roomForm.checkinEnq.$error'>
+								<div ng-message='required'>Please Select Checkin Date</div>
+							 </div> -->
 							</div>
 
 
@@ -29,9 +29,9 @@
 							<label>Check-out</label>
 								<!-- <input type="date" placeholder="Enter Checkout Date" ng-model="checkout"> -->
 								 <md-datepicker 
-						               ng-model="checkout" 
-						               md-placeholder="Enter Date"
-						                required></md-datepicker>
+													 ng-model="checkout" 
+													 md-placeholder="Enter Date"
+														required></md-datepicker>
 							</div>
 						</div>	
 						<div class="row"><div class="col-sm-12">
@@ -43,97 +43,97 @@
 								<option value="gold">Gold</option>
 							</select>
 						</div></div>
-					    <div class="row">
-                  <div class="col-sm-12">
-                 <table class="table em_table_clean table-responsive">
-                    <thead><tr><th></th>
-                    <th>Single <img src="../../images/camas.png"></th>
-                    <th>Double <img src="../../images/camas.png"><img src="../../images/camas.png"></th>
-                    <th>Triple <img src="../../images/camas.png"><img src="../../images/camas.png"><img src="../../images/camas.png"></th>
-                    <th class="hab_4 hidden">Quadruple<img src="../../images/camas.png"><img src="../../images/camas.png"><img src="../../images/camas.png"><img src="../../images/camas.png"></th>
-                    </tr>
-                    <tr><th>Price(*):</th>
-                    <th><span id="precio_sg">$ {{sgl}}</span></th>
-                    <th><span id="precio_db">$ {{dbl}}</span></th>
-                    <th><span id="precio_tr">$ {{trbl}}</span></th>
-                    <th class="hab_4 hidden"><span id="precio_cd">$ 0</span></th>
-                    </tr>
-                    </thead>
-                    <tbody><tr><td>Rooms:</td>
-                    <td>
-                    <select name="num_sg" id="num_sg"  ng-model="num_sgl" ng-change="sglNumber(num_sgl)">
-                                    <option value="0" ng-selected=
-                                    "true">select number</option>
-					                <option value="1">1 room</option>
-					                <option value="2">2 rooms</option>
-					                <option value="3">3 rooms</option>
-					                <option value="4">4 rooms</option>
-					                <option value="5">5 rooms</option>
-					                <option value="6">6 rooms</option>
-					                <option value="7">7 rooms</option>
-					                <option value="8">8 rooms</option>
-					                <option value="9">9 rooms</option>
-					                <option value="10">10 rooms</option>					   
-					            </select>
-        
-                    </td>
-                    <td>
-                    <select name="num_db" id="num_db"  ng-model="num_dbl" ng-change="dblNumber(num_dbl)">
-                              <option value="0"  ng-selected="true">select number</option>
-					                <option value="1">1 room</option>
-					                <option value="2">2 rooms</option>
-					                <option value="3">3 rooms</option>
-					                <option value="4">4 rooms</option>
-					                <option value="5">5 rooms</option>
-					                <option value="6">6 rooms</option>
-					                <option value="7">7 rooms</option>
-					                <option value="8">8 rooms</option>
-					                <option value="9">9 rooms</option>
-					                <option value="10">10 rooms</option>	
-					            </select></td>
-                    <td>
-                    <select name="num_tr" id="num_tr"  ng-model="num_trbl" ng-change="trblNumber(num_trbl)" >
-                                    <option value="0" ng-selected="true">select number</option>
-					                <option value="1">1 rooms</option>
-					                <option value="2">2 rooms</option>
-					                <option value="3">3 rooms</option>
-					                <option value="4">4 rooms</option>
-					                <option value="5">5 rooms</option>
-					                <option value="6">6 rooms</option>
-					                <option value="7">7 rooms</option>
-					                <option value="8">8 rooms</option>
-					                <option value="9">9 rooms</option>
-					                <option value="10">10 rooms</option>	
-					            </select></td>
-                    
-                    </tr></tbody>
-            
-       
-                </table>
-                    <div class="row"><div class="col-lg-12" style="margin-bottom:5px;">(*) price per passenger</div></div>
-            </div>
-            </div>
-           
-        <div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Passengers</span></div></div>
-        <div class="row">
-			            <div class="col-sm-12">
-			                <h5>Please, write the age of every passenger for your tour :</h5>
-			            </div>
-        			</div>
-        <div id="singlePass"></div>
-        <div id="doublePass"></div>
-        <div id="triplePass" style="margin-bottom:15px"></div>				
+							<div class="row">
+									<div class="col-sm-12">
+								 <table class="table em_table_clean table-responsive">
+										<thead><tr><th></th>
+										<th>Single <img src="../../images/camas.png"></th>
+										<th>Double <img src="../../images/camas.png"><img src="../../images/camas.png"></th>
+										<th>Triple <img src="../../images/camas.png"><img src="../../images/camas.png"><img src="../../images/camas.png"></th>
+										<th class="hab_4 hidden">Quadruple<img src="../../images/camas.png"><img src="../../images/camas.png"><img src="../../images/camas.png"><img src="../../images/camas.png"></th>
+										</tr>
+										<tr><th>Price(*):</th>
+										<th><span id="precio_sg">$ {{sgl}}</span></th>
+										<th><span id="precio_db">$ {{dbl}}</span></th>
+										<th><span id="precio_tr">$ {{trbl}}</span></th>
+										<th class="hab_4 hidden"><span id="precio_cd">$ 0</span></th>
+										</tr>
+										</thead>
+										<tbody><tr><td>Rooms:</td>
+										<td>
+										<select name="num_sg" id="num_sg"  ng-model="num_sgl" ng-change="sglNumber(num_sgl)">
+																		<option value="0" ng-selected=
+																		"true">select number</option>
+													<option value="1">1 room</option>
+													<option value="2">2 rooms</option>
+													<option value="3">3 rooms</option>
+													<option value="4">4 rooms</option>
+													<option value="5">5 rooms</option>
+													<option value="6">6 rooms</option>
+													<option value="7">7 rooms</option>
+													<option value="8">8 rooms</option>
+													<option value="9">9 rooms</option>
+													<option value="10">10 rooms</option>					   
+											</select>
+				
+										</td>
+										<td>
+										<select name="num_db" id="num_db"  ng-model="num_dbl" ng-change="dblNumber(num_dbl)">
+															<option value="0"  ng-selected="true">select number</option>
+													<option value="1">1 room</option>
+													<option value="2">2 rooms</option>
+													<option value="3">3 rooms</option>
+													<option value="4">4 rooms</option>
+													<option value="5">5 rooms</option>
+													<option value="6">6 rooms</option>
+													<option value="7">7 rooms</option>
+													<option value="8">8 rooms</option>
+													<option value="9">9 rooms</option>
+													<option value="10">10 rooms</option>	
+											</select></td>
+										<td>
+										<select name="num_tr" id="num_tr"  ng-model="num_trbl" ng-change="trblNumber(num_trbl)" >
+																		<option value="0" ng-selected="true">select number</option>
+													<option value="1">1 rooms</option>
+													<option value="2">2 rooms</option>
+													<option value="3">3 rooms</option>
+													<option value="4">4 rooms</option>
+													<option value="5">5 rooms</option>
+													<option value="6">6 rooms</option>
+													<option value="7">7 rooms</option>
+													<option value="8">8 rooms</option>
+													<option value="9">9 rooms</option>
+													<option value="10">10 rooms</option>	
+											</select></td>
+										
+										</tr></tbody>
+						
+			 
+								</table>
+										<div class="row"><div class="col-lg-12" style="margin-bottom:5px;">(*) price per passenger</div></div>
+						</div>
+						</div>
+					 
+				<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Passengers</span></div></div>
+				<div class="row">
+									<div class="col-sm-12">
+											<h5>Please, write the age of every passenger for your tour :</h5>
+									</div>
+							</div>
+				<div id="singlePass"></div>
+				<div id="doublePass"></div>
+				<div id="triplePass" style="margin-bottom:15px"></div>				
 					<button type="submit" class="btn btn-md btn-info" ng-click="calcCost()" id="calc">Calculate Cost</button>		
 					<div class="row">
 						<div class="col-sm-4">
-						  
-						  <label>Total Cost:   {{total}}</label>
-						  </div>
+							
+							<label>Total Cost:   {{total}}</label>
+							</div>
 						</div>				
 					</div>
 				</form> 
-		   <button type="button" class="btn btn-md btn-info pull-right" ng-click="continue()" id="continue" >Continue</button>   
-		   </div>
+			 <button type="button" class="btn btn-md btn-info pull-right" ng-click="continue()" id="continue" >Continue</button>   
+			 </div>
 	</div>
 		<div class="col-lg-12 well">
 		<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Passenger Info</span></div></div>
@@ -150,8 +150,8 @@
 								<label>Leader First Name</label>
 								<input type="text" placeholder="Enter First Name Here.." class="form-control" ng-model="ownerFirst" name='firstEnq' required />
 				<!-- <div ng-messages='paxForm.firstEnq.$error' style="color:maroon" ng-if='paxForm.firstEnq.$dirty'>
-               	<div ng-message='required'>Please Enter Your First Name</div> -->
-               </div>
+								<div ng-message='required'>Please Enter Your First Name</div> -->
+							 </div>
 							<div class="col-sm-4 form-group">
 								<label>Leader Last Name</label>
 								<input type="text" placeholder="Enter Last Name Here.." class="form-control" ng-model="ownerLast" required />
@@ -170,7 +170,7 @@
 							<label>Gender </label>
 						
 							<select id="ownerGender"><option value='male'>male</option><option value='female'>female</option></select>
-				     	 </div>	
+							 </div>	
 							
 						</div>
 						</div>
@@ -292,217 +292,234 @@
 				<div class="col-lg-12 well">
 				<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Review & Pay</span></div></div>
 				<div class="row"><div class="col-sm-6">
-				        <table class="table table-responsive table-bordered">
-						    <thead>
-						      <tr class="info">
-						        <th>Review</th>
+								<table class="table table-responsive table-bordered">
+								<thead>
+									<tr class="info">
+										<th>Review</th>
 		
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr class="active">
-						        <td>Tour</td>
-						        <td>{{data.packageName}}</td>
-						        
-						      </tr>
-						      <tr class="active">
-						        <td>Duration</td>
-						        <td>{{data.days}} days</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="active">
+										<td>Tour</td>
+										<td>{{data.packageName}}</td>
+										
+									</tr>
+									<tr class="active">
+										<td>Duration</td>
+										<td>{{data.days}} days</td>
 		
-						      </tr>
-						      <tr class="active">
-						        <td>Hotel</td>
-						        <td>{{enquiry.hotelType}}</td>
-						      </tr>
-						      <tr class="active">
-						        <td>Single Room</td>
-						        <td>{{enquiry.room.single}}</td>
-						      </tr>
-						      <tr class="active">
-						        <td>Double Room</td>
-						        <td>{{enquiry.room.double}}</td>
-						      </tr>
-						      <tr class="active">
-						        <td>Triple Room</td>
-						        <td>{{enquiry.room.triple}}</td>
-						      </tr>
-						    </tbody>
-						  </table>
-						  </div>
-						  <div class='col-sm-6'>
-						  <table class="table table-responsive table-bordered " id="costTable">
-						    <thead>
-						      <tr class="info">
-						        <th>Cost</th>
+									</tr>
+									<tr class="active">
+										<td>Hotel</td>
+										<td>{{enquiry.hotelType}}</td>
+									</tr>
+									<tr class="active">
+										<td>Single Room</td>
+										<td>{{enquiry.room.single}}</td>
+									</tr>
+									<tr class="active">
+										<td>Double Room</td>
+										<td>{{enquiry.room.double}}</td>
+									</tr>
+									<tr class="active">
+										<td>Triple Room</td>
+										<td>{{enquiry.room.triple}}</td>
+									</tr>
+								</tbody>
+							</table>
+							</div>
+							<div class='col-sm-6'>
+							<table class="table table-responsive table-bordered " id="costTable">
+								<thead>
+									<tr class="info">
+										<th>Cost</th>
 		
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr class="active" id="sCost">
-						        <td>Single Room Cost</td>
-						        <td>{{enquiry.room.single}}X{{sgl}}</td>
-						        
-						      </tr>
-						      
-						      <tr class="active" id="dCost">
-						        <td>Double Room Cost</td>
-						        <td>{{enquiry.room.double}}X{{dbl}}X2</td>  
-						      </tr>
-						      
-						       <tr class="active" id="tCost">
-						        <td>Triple Room Cost</td>
-						        <td>{{enquiry.room.triple}}X{{trbl}}X3</td>  
-						      </tr>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="active" id="sCost">
+										<td>Single Room Cost</td>
+										<td>{{enquiry.room.single}}X{{sgl}}</td>
+										
+									</tr>
+									
+									<tr class="active" id="dCost">
+										<td>Double Room Cost</td>
+										<td>{{enquiry.room.double}}X{{dbl}}X2</td>  
+									</tr>
+									
+									 <tr class="active" id="tCost">
+										<td>Triple Room Cost</td>
+										<td>{{enquiry.room.triple}}X{{trbl}}X3</td>  
+									</tr>
 
-						      <tr class="active" id="childDiscount">
-						        <td>Children Discount For Triple Room</td>
-						        <td>{{data.childPrice}} %</td>
-						        
-						      </tr>
-						      <tr class="active">
-						        <td>Total Cost</td>
-						        <td>{{enquiry.totalCost}}</td>
-						      </tr>
-						      
-						    </tbody>
-						  </table>
-						  </div>
-						  </div>
-						  <div class='row'>
-						  <div class='col-sm-6'>
-						  <table class="table table-responsive table-bordered">
-						    <thead>
-						      <tr class="info">
-						        <th>Passengers</th>
-		                         
-						      </tr>
-						      <tr class="active">
-						      	<th>First Name</th>
-						      	<th>Last Name</th>
-						      	<th>Passport Number</th>
-						      	<th>Birth Date</th>
-						      	<th>Gender</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr ng-repeat="pass in enquiry.passengers" class="active">
-						        <td>{{pass.firstName}}</td>
-						        <td>{{pass.lastName}}</td> 
-						        <td>{{pass.passport}}</td>
-						        <td>{{pass.birthDate}}</td>
-						        <td>{{pass.gender}}</td>
-						      </tr>
-						      <tr>
-						    </tbody>
-						  </table>
-						  </div>
-						  <div class='col-sm-6'>
-						  <table class="table table-responsive table-bordered">
-						  <thead>
-						  <tr class="info">
-						  	<th>Contact Details</th>
-						  	</tr>
-						  </thead>
-						  <tbody>
-						  <tr class="active">
-						  	<td>Country</td>
-						  	<td>{{enquiry.country}}</td>
-						  </tr>
-						  <tr class="active">
-						  	<td>Email</td>
-						  	<td>{{enquiry.email}}</td>
-						  	</tr>
-						  	<tr class="active">
-						  		<td>Mobile</td>
-						  		<td>{{enquiry.mobile}}</td>
-						  	</tr>
+									<tr class="active" id="childDiscount">
+										<td>Children Discount For Triple Room</td>
+										<td>{{data.childPrice}} %</td>
+										
+									</tr>
+									<tr class="active">
+										<td>Total Cost</td>
+										<td>{{enquiry.totalCost}}</td>
+									</tr>
+									
+								</tbody>
+							</table>
+							</div>
+							</div>
+							<div class='row'>
+							<div class='col-sm-6'>
+							<table class="table table-responsive table-bordered">
+								<thead>
+									<tr class="info">
+										<th>Passengers</th>
+														 
+									</tr>
+									<tr class="active">
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Passport Number</th>
+										<th>Birth Date</th>
+										<th>Gender</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="pass in enquiry.passengers" class="active">
+										<td>{{pass.firstName}}</td>
+										<td>{{pass.lastName}}</td> 
+										<td>{{pass.passport}}</td>
+										<td>{{pass.birthDate}}</td>
+										<td>{{pass.gender}}</td>
+									</tr>
+									<tr>
+								</tbody>
+							</table>
+							</div>
+							<div class='col-sm-6'>
+							<table class="table table-responsive table-bordered">
+							<thead>
+							<tr class="info">
+								<th>Contact Details</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr class="active">
+								<td>Country</td>
+								<td>{{enquiry.country}}</td>
+							</tr>
+							<tr class="active">
+								<td>Email</td>
+								<td>{{enquiry.email}}</td>
+								</tr>
+								<tr class="active">
+									<td>Mobile</td>
+									<td>{{enquiry.mobile}}</td>
+								</tr>
 
-						  </tbody>
-						  </table>
-						  </div>
-						  </div>  
+							</tbody>
+							</table>
+							</div>
+							</div>  
 						 <!--  <div class='row'>
-						  <div class='col-sm-6'>
-						  <table class="table table-responsive table-bordered">
-						    <thead>
-						      <tr class="info">
-						        <th>Card Details</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr class="active">
-						        <td>Name On Card*</td>
-						        <td><input type="text" ng-model="cardName" /></td>
-						        
-						        
-						      </tr>
-						      <tr class="active">
-						        <td>Credit Card Number*</td>
-						        <td><input type="number" ng-model="cardNumber"/></td>
+							<div class='col-sm-6'>
+							<table class="table table-responsive table-bordered">
+								<thead>
+									<tr class="info">
+										<th>Card Details</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="active">
+										<td>Name On Card*</td>
+										<td><input type="text" ng-model="cardName" /></td>
+										
+										
+									</tr>
+									<tr class="active">
+										<td>Credit Card Number*</td>
+										<td><input type="number" ng-model="cardNumber"/></td>
 		
-						      </tr>
-						      <tr class="active">
-						        <td>Card Type</td>
-						        <td><select>
-						        	<option value="master card">Master Card</option>
-						        	<option value="visa card">Visa Card</option>
-						        </select></td>
-						      </tr>
-						      <tr class="active">
-						        <td>Expiry Date*</td>
-						        <td><input type="date" ng-model="cardExpiry"/></td>
-						      </tr>
-						      <tr class="active">
-						        <td>CVV Code*</td>
-						        <td><input type="text" ng-model="cvvCode"></td>
+									</tr>
+									<tr class="active">
+										<td>Card Type</td>
+										<td><select>
+											<option value="master card">Master Card</option>
+											<option value="visa card">Visa Card</option>
+										</select></td>
+									</tr>
+									<tr class="active">
+										<td>Expiry Date*</td>
+										<td><input type="date" ng-model="cardExpiry"/></td>
+									</tr>
+									<tr class="active">
+										<td>CVV Code*</td>
+										<td><input type="text" ng-model="cvvCode"></td>
 		
-						      </tr>
-						      
-						    </tbody>
-						  </table>
-						  </div> -->
-						  <!-- </div> -->
-						  <div class="row" style="margin-bottom: 15px">
-						  	<div class="col-sm-12">
-						  		
-						  A 3% fee will be added for payment by credit card.
-						  	</div>
-						  </div>
-						  <div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Terms & Conditions</span></div></div>
+									</tr>
+									
+								</tbody>
+							</table>
+							</div> -->
+							<!-- </div> -->
+							<div class="row" style="margin-bottom: 15px">
+								<div class="col-sm-12">
+									
+							A 3% fee will be added for payment by credit card.
+								</div>
+							</div>
+							<div class="row"><div class="col-lg-12" style="background-color:#427c9a ; padding-top:5px;padding-bottom:5px; margin-bottom:10px" ><span style="color:#fff;font-size:17px">Terms & Conditions</span></div></div>
 
-						  <div class="row"><div class="col-sm-12"> 	
-						  After clicking the 'Book Now' button, please wait for the process to complete before leaving the page.
+							<div class="row"><div class="col-sm-12"> 	
+							After clicking the 'Book Now' button, please wait for the process to complete before leaving the page.
 If you experience any difficulties with completing your payment or booking online, please contact us on .........    and our sales staff will be happy to help.
 <br/>
 <input  type="checkbox" />
  I have read and agree to the <a href="/#/terms-and-conditions">Terms & Conditions</a>.
  <br/>
- <button ng-click="book()" class="btn btn-md btn-info"  id="book">Book Now</button> 
+ <br/>
+	Are you an individual or a travel agent?  
+		<input type="radio" name="ownerType" value="individual"> Individual
+		<input type="radio" name="ownerType" value="travel agent"> Travel Agent
+		<br/>
+		<br/>
+		<button ng-click="book()" class="btn btn-md btn-info"  id="book">Book Now</button>
+		<div style="height:100px ; width:250px; margin-left:400px; display: none" id="agentLogin">
+		  <form>
+                <input type="text" class="form-control" placeholder="User Name" required autofocus ng-model="userName">
+                <input type="password" class="form-control" placeholder="Password" required ng-model="password">
+                <button class="btn btn-md btn-primary btn-block" type="submit" ng-click="signIn()">
+                    Sign in</button>
+                </form>
+		</div>
+  
 
-						  	
-						  </div></div>
+								
+							</div></div>
 
 				</div>
 	</div>
-	</div>
+
+</div><!-- end of container -->
+
 
 <div  ng-include="'../footer.html'">                    
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
 	var t="<div  style='border-width:1px; border-color:#000; border-style:solid; margin-bottom:10px' class='passDiv'><div class='row' style='padding-top:8px;margin-left:2px'><div class='col-sm-4 form-group'><label>First Name</label><input type='text' placeholder='Enter First Name Here..' class='form-control firstName'></div><div class='col-sm-4 form-group'><label>Last Name</label><input type='text' placeholder='Enter Last Name Here..' class='form-control lastName'></div><div class='col-sm-4 form-group'><label>Passport Number</label><input type='text' placeholder='Enter Passport Number' class='form-control passport'></div></div><div class='row' style='margin-left:2px'><div class='col-sm-4 form-group'><label>Birth Date</label><input type='date' placeholder='Enter Birth Date'class='birthDate' /></div><div class='col-sm-4 form-group'><label>Gender </label><select><option value='male'>male</option><option value='female'>female</option></select></div></div>"
-    $("#pass").change(function(){
-        $(this).find("option:selected").each(function(){
-        	$("#passenger").html(" ");
-        	var length=Number($(this).text());
-        	for(var i=1; i<length; i++) {
-        		$("#passenger").append(t);
-               $("#passenger").show();
-        	}
+		$("#pass").change(function(){
+				$(this).find("option:selected").each(function(){
+					$("#passenger").html(" ");
+					var length=Number($(this).text());
+					for(var i=1; i<length; i++) {
+						$("#passenger").append(t);
+							 $("#passenger").show();
+					}
 
 
-        });
-    }).change();
+				});
+		}).change();
 
 });
 </script>
