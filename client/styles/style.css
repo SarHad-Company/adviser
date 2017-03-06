@@ -179,7 +179,8 @@ ul#cm-nav li li {
 	background-attachment: fixed;
 }
 .back1{
-  background-image: url('../images/ff8.jpg');
+  /*background-image: url('../images/ff8.jpg');*/
+  background-color: white;
   background-attachment: fixed;
 }
 #sub-floor {
@@ -311,7 +312,8 @@ footer a:hover {
 #myNavbar{
   display: block;
   position: relative;
-  top: 140px;
+  top: 20px;
+  left: 30px;
 }
 /*.allDestination-div{
   display: block;
