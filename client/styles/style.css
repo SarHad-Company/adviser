@@ -175,7 +175,7 @@ ul#cm-nav li li {
   background-attachment: fixed;
 }
 .back{
-	background-image: url('../images/hwaml.com_1336057532_767.jpg');
+	background-image: url('../images/hw.jpg');
 	background-attachment: fixed;
   background-size: 100%;
 
@@ -352,7 +352,7 @@ footer a:hover {
   width: 95%;
   opacity: 0;
   transition: .5s ease;
-  background-image: url('../images/hwaml.com_1336057532_767.jpg');
+  background-image: url('../images/hw.jpg');
 }
 .text {
   color: white;
