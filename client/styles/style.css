@@ -536,7 +536,35 @@ ul.jordanUl {
 .content{
   position:relative ;
 }
+
 .backfoot{
   background-color:#003366;
   background-attachment: fixed;
 }
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(1,1);
+    }
+    to {
+      -webkit-transform: scale(1.5,1.5);
+    }
+}
+
+/* Standard syntax */
+@keyframes zoom {
+   from {
+        transform: scale(1,1);
+   }
+   to {
+        transform: scale(1.5,1.5);
+   }
+}
+
+
+.zooming {
+    -webkit-animation: zoom 50s; /* Chrome, Safari, Opera */
+    animation: zoom 50s;
+}
+
