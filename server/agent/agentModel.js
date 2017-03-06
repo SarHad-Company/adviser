@@ -13,19 +13,6 @@ var agentSchema = new mongoose.Schema({
 	salt: {type: String}	
 });
 
-// agentSchema.methods.comparePasswords = function (candidatePassword) {
-//   var savedPassword = this.password;
-// 	return bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
-// 	  if (err) {
-// 	  	console.log(err);
-// 	    return err;
-// 	  } else {
-// 	  	console.log(isMatch);
-// 	    return isMatch;
-// 	  }
-// 	});
-// };
-
 agentSchema.pre('save', function (next) {
   var agent = this;
 
