@@ -175,8 +175,15 @@ ul#cm-nav li li {
   background-attachment: fixed;
 }
 .back{
-	background-image: url('../images/back3.jpg');
+	background-image: url('../images/hwaml.com_1336057532_767.jpg');
 	background-attachment: fixed;
+  background-size: 100%;
+
+}
+.back3{
+  background-color:#66b3ff;
+  background-attachment: fixed;
+  background-size: 100%;
 }
 .back1{
   /*background-image: url('../images/ff8.jpg');*/
@@ -345,7 +352,7 @@ footer a:hover {
   width: 95%;
   opacity: 0;
   transition: .5s ease;
-  background-image: url('../images/overlay.jpg');
+  background-image: url('../images/hwaml.com_1336057532_767.jpg');
 }
 .text {
   color: white;
@@ -528,4 +535,9 @@ ul.jordanUl {
 }
 .content{
   position:relative ;
+}
+
+.backfoot{
+  background-color:#003366;
+  background-attachment: fixed;
 }
