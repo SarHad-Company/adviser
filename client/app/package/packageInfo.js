@@ -1,6 +1,6 @@
 angular.module('adviser.packageInfo', [])
 
-.controller('packageInfoController', function($scope, $routeParams, Package, $location){
+.controller('packageInfoController', function($scope, $routeParams, Package, $location, Agent){
 
 		$scope.myInterval = 3000;
 		$scope.total = 0;
@@ -137,7 +137,7 @@ angular.module('adviser.packageInfo', [])
 						}else {
 						$scope.childDiscount = $scope.childNumber*discount
 						$scope.total = (($("#num_sg").val())*($scope.sgl))+(($("#num_db").val())*($scope.dbl)*2)+((($("#num_tr").val())*($scope.trbl)*3)-($scope.childNumber*discount)) + ($scope.highSeasonSublOk*$scope.pax);
-            
+						
 						var t="<div  style='border-width:1px; border-color:#000; border-style:solid; margin-bottom:10px' class='passDiv'><div class='row' style='padding-top:8px;margin-left:2px'><div class='col-sm-4 form-group'><label>First Name</label><input type='text' placeholder='Enter First Name Here..' class='form-control firstName' Required></div><div class='col-sm-4 form-group'><label>Last Name</label><input type='text' placeholder='Enter Last Name Here..' class='form-control lastName' Required></div><div class='col-sm-4 form-group'><label>Passport Number</label><input type='text' placeholder='Enter Passport Number' class='form-control passport' Required></div></div><div class='row' style='margin-left:2px'><div class='col-sm-4 form-group'><label>Birth Date</label><input type='date' placeholder='Enter Birth Date'class='birthDate' Required/></div><div class='col-sm-4 form-group'><label>Gender </label><select><option value='male'>male</option><option value='female'>female</option></select></div></div>"
 						$("#passenger").html(" ");
 							for(var i=1; i<$scope.pax; i++) {
@@ -326,27 +326,46 @@ angular.module('adviser.packageInfo', [])
 		if (Object.keys($scope.enquiry).length === 0){
 			alert ("Please Enter Your Enquiry Information");
 		}else{
-		Package.addEnquiry($scope.enquiry)
-		.then(function (enquiry){
-			console.log(enquiry);
-			alert("book done");
-			console.log(moment.utc(enquiry.data.checkin).format('MM/DD/YYYY'))
-			Package.sendMail(enquiry.data, $scope.data)
-			.then(function (data){
-				console.log('email', data)
-				$location.path("confirm");
-			})
-			.catch(function(error){
-				console.log(error)
-			})
+			if ($('input[name=ownerType]:checked').val() === "travel agent"){
+				$("#agentLogin").fadeIn();
+			}
+			else{
+				Package.addEnquiry($scope.enquiry)
+				.then(function (enquiry){
+					console.log(enquiry);
+					alert("book done");
+					console.log(moment.utc(enquiry.data.checkin).format('MM/DD/YYYY'))
+					Package.sendMail(enquiry.data, $scope.data)
+					.then(function (data){
+						console.log('email', data)
+						$location.path("confirm");
+					})
+					.catch(function(error){
+						console.log(error)
+					})
 
+				})
+				.catch(function (error){
+					alert ("an error occured, Enquiry Is Not Saved");
+				})
+			}
+		}
+	}//end book function
+  var agent={};
+	$scope.signIn = function (){
+  	agent.userName = $scope.userName;
+  	agent.password = $scope.password;
+ 		Agent.signIn(agent)
+		.then(function (res){
+			console.log(res)
 		})
-		.catch(function (error){
-			alert ("an error occured, Enquiry Is Not Saved");
+		.catch(function (err){
+			alert ("user dosen't exist");
+			console.log(err);
 		})
 	}
 
-	}
+
 
 
 });

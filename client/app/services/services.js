@@ -233,6 +233,69 @@ angular.module('adviser.services', [])
 
 
   })
+.factory('Agent', function($http){
+
+  var addAgent = function (agent) {
+    return $http({
+      method: 'POST',
+      url: '/api/addAgent',
+      data: agent
+    });
+  };
+
+  var getAgents = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/agent'
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  var getAgentInfo = function (id) {
+    return $http({
+      method: 'GET',
+      url: '/api/agent/agentInfo/'+id
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  var deleteAgent = function (id) {
+      return $http({
+        method: 'DELETE',
+        url: '/api/agent/deleteAgent/' + id,
+      });
+    };
+
+  var signIn = function (agent) {
+    return $http({
+      method: 'POST',
+      url: '/api/agent/signIn',
+      data: agent
+    });
+  };
+
+  var updateAgent = function (id, agent) {
+      return $http({
+        method: 'PUT',
+        url: '/api/agent/updateAgent/' + id,
+        data: agent
+      });
+  };
+
+  return{
+    addAgent: addAgent,
+    getAgents: getAgents,
+    getAgentInfo: getAgentInfo,
+    deleteAgent: deleteAgent,
+    signIn: signIn,
+    updateAgent: updateAgent
+  };
+
+})
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user
