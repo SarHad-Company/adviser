@@ -114,7 +114,16 @@ angular.module('adviser', [
   .when('/home', {
     templateUrl: 'app/main/main.html',
     controller: 'destinationController'
-  });
+  })
+  .when('/aboutUs', {
+    templateUrl: 'app/main/aboutUs.html'
+  })
+  .when('/contactUs', {
+    templateUrl: 'app/main/contactUs.html'
+  })
+  .otherwise({
+      redirectTo: '/home'
+    });
     
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

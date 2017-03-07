@@ -568,3 +568,11 @@ ul.jordanUl {
     animation: zoom 50s;
 }
 
+.aboutus{
+  background-color:lightblue;
+}
+#head {
+  background: none repeat scroll 0 0 lightblue;
+  padding: 9em 0 5em;
+  text-align: center;
+}
