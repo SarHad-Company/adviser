@@ -1,0 +1,58 @@
+<div ng-include="'../header.html'"></div>
+<div class="container">
+<div id="head">
+            <div>
+               <h1>Our Office Info</h1>
+            </div>
+         </div>
+<div class="row" style="padding: 25px">
+  
+  <div class="col-lg-6">
+    <address>
+    <h3>Headquarter</h3>
+    <hr>
+    <p style="font-weight: bold;">Adviser Travel & Toursim.</p><br>
+    <p>Tla'a Al Ali - Wasf al tal Street(Gardens)<br>
+      Areej Center # 210 - Office # 307 <br>
+      Amman-Jordan<br>
+      Tel : (+962) 6 5538325<br>
+      Fax : (+962) 6 5523411<br>
+      Email :info@advisertours,com</p>
+    <h3>For Reservations</h3>
+    <hr>
+    <p><span style="font-weight: bold;">Tel :</span>(+962) 6 5538325<br>
+    <span style="font-weight: bold;">Fax :</span>(+962) 6 5523411<br>
+    <span style="font-weight: bold;">Email :</span>E-mail: reservation@advisertours.com<br><br>
+    <span style="font-weight: bold;">Email :</span>We love to serve you, don't be hesitant to contact us.</p>
+    </address>
+  </div>
+
+    <div class="col-lg-6">
+  <form role="form" action="" method="post" >
+      <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
+      <div class="form-group">
+        <label for="InputName">Your Name</label>
+        <div class="input-group">
+          <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" ng-model="name" required>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      <div class="form-group">
+        <label for="InputEmail">Your Email</label>
+        <div class="input-group">
+          <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" ng-model="email" required  >
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      <div class="form-group">
+        <label for="InputMessage">Message</label>
+        <div class="input-group">
+          <textarea name="InputMessage" id="InputMessage" class="form-control" rows="7" ng-model="text" required></textarea>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      <input value="submit" class="btn btn-info pull-right" ng-click="submitMail()">
+  </form>
+    </div>
+  <hr class="featurette-divider hidden-lg">
+</div>
+
+</div>
+<div ng-include="'../footer.html'"></div>

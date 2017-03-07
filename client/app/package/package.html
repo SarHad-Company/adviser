@@ -1,6 +1,56 @@
 <div ng-include="'../header.html'">                    
 </div>
-<div class="container main-div" >
+<div id="myCarousel" class="carousel slide main-div" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="../images/madinat-jumeirah-al-qasr-exterior-01-hero.jpg" alt="jordan" style="height: 560px; max-height: 560px" class="zooming">
+      <div class="carousel-caption">
+        <h3>DUABI</h3>
+        <p>Thank you, DUABI - A tour you won't forget.</p>
+      </div> 
+    </div>
+    <div class="item">
+      <img src="../images/madinat-jumeirah-full-resort-herov2.jpg" alt="dubi" style="height: 560px; max-height: 560px" class="zooming">
+      <div class="carousel-caption">
+        <h3>DUABI</h3>
+        <p>Thank you, DUABI - A tour you won't forget.</p>
+      </div> 
+    </div>
+    <div class="item">
+      <img src="../images/inter1.jpg" alt="egypt" style="height: 560px; max-height: 560px" class="zooming">
+      <div class="carousel-caption">
+        <h3>JORDAN</h3>
+        <p>Thank you, JORDAN - A tour you won't forget.</p>
+      </div> 
+    </div>
+     <div class="item">
+      <img src="../images/egyptian-cityscapes-pyramids-2400x1350-wallpaper.jpg" alt="egypt" style="height: 560px; max-height: 560px" class="zooming">
+      <div class="carousel-caption">
+        <h3>EGYPT</h3>
+        <p>Thank you, EGYPT - A tour you won't forget.</p>
+      </div> 
+    </div>
+  </div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<br>
+<hr class="back hr">
+<div class="container  main-div">
   <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
@@ -21,7 +71,7 @@
                     <img  style="width:320px; height:250px ;"  class="img-responsiv img-thumbnail animated fadeInDown " src="{{package.mainPhoto}}" alt="">
                 </a>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 ">
                 <h3><p class="text-primary">{{package.packageName}}</p></h3>
                 <p>{{package.outline}}</p>
                 <h4><p class="text-right">From <strong>{{package.price}}$</strong></p></h4>
