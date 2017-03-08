@@ -219,6 +219,17 @@ angular.module('adviser.services', [])
     });
   };
 
+  var sendConfirmMail = function (enquiry, package) {
+    return $http({
+      method: 'POST',
+      url: '/api/sendConfirmMail',
+      data: {enquiry: enquiry, package: package}
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
   return {
     getPackages: getPackages,
     addNewPackage: addNewPackage,
@@ -227,7 +238,8 @@ angular.module('adviser.services', [])
     updatePackage: updatePackage,
     deletePhoto: deletePhoto,
     deletePackage: deletePackage,
-    sendMail: sendMail
+    sendMail: sendMail,
+    sendConfirmMail: sendConfirmMail
 
   };
 

@@ -330,20 +330,29 @@ angular.module('adviser.packageInfo', [])
 				$("#agentLogin").fadeIn();
 			}
 			else{
+				$scope.enquiry.agentId = 0;
+				$scope.enquiry.agency = 'client';
 				Package.addEnquiry($scope.enquiry)
 				.then(function (enquiry){
 					console.log(enquiry);
 					alert("book done");
-					console.log(moment.utc(enquiry.data.checkin).format('MM/DD/YYYY'))
+					//console.log(moment.utc(enquiry.data.checkin).format('MM/DD/YYYY'))
 					Package.sendMail(enquiry.data, $scope.data)
 					.then(function (data){
 						console.log('email', data)
-						$location.path("confirm");
+						Package.sendConfirmMail(enquiry.data, $scope.data)
+							.then(function (data){
+								console.log('email', data)
+								$location.path("confirm");
+							})
+							.catch(function(error){
+								console.log(error)
+							})
 					})
 					.catch(function(error){
 						console.log(error)
 					})
-
+					
 				})
 				.catch(function (error){
 					alert ("an error occured, Enquiry Is Not Saved");
@@ -358,9 +367,43 @@ angular.module('adviser.packageInfo', [])
  		Agent.signIn(agent)
 		.then(function (res){
 			console.log(res)
+			if (res.data.result.isMatch === true){
+				$scope.enquiry.agentId = res.data.result.agent._id;
+				$scope.enquiry.agency = res.data.result.agent.agency;
+				Package.addEnquiry($scope.enquiry)
+				.then(function (enquiry){
+					console.log(enquiry);
+					alert("book done");
+					Package.sendMail(enquiry.data, $scope.data)
+					.then(function (data){
+						console.log('email', data)
+						Package.sendConfirmMail(enquiry.data, $scope.data)
+							.then(function (data){
+								console.log('email', data)
+								$location.path("confirm");
+							})
+							.catch(function(error){
+								console.log(error)
+							})
+					})
+					.catch(function(error){
+						console.log(error)
+					})
+					
+				})
+				.catch(function (error){
+					alert ("an error occured, Enquiry Is Not Saved");
+				})
+			}// end if
+			else if (res.data.result.isMatch === false){
+          alert ("Your Password Is Not Correct");
+			}
+			else if (res.data.result.isMatch === 'no user'){
+				  alert ("Your UserName is Not Exist");
+			}
 		})
 		.catch(function (err){
-			alert ("user dosen't exist");
+			alert ("An Error Occured");
 			console.log(err);
 		})
 	}
