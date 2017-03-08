@@ -24,7 +24,9 @@ module.exports = {
 			adults: enquiry.adults,
 			children: enquiry.children,
 			pax: enquiry.pax,
-			packageName: enquiry.packageName
+			packageName: enquiry.packageName,
+			agentId: enquiry.agentId,
+			agency: enquiry.agency
 		});
 		newEnquiry.save(function (err, enquiry) {
 			repsonseHandler(err, req, res, {status: 201, returnObj: enquiry}, next);

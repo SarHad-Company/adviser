@@ -66,10 +66,15 @@ module.exports = {
 	signIn: function (req, res, next) {
 		Agent.findOne({userName: req.body.userName}, function (error,agent) {
 			if (error || !agent){
-					repsonseHandler(error, req, res, {status: 201, returnObj: {isMatch: "no user"}}, next);
+				    var result = {};
+				    result.isMatch = 'no user';
+					repsonseHandler(error, req, res, {status: 201, returnObj: {result: result}}, next);
 			}else{
 			  bcrypt.compare(req.body.password, agent.password, function (err, isMatch) {
-					repsonseHandler(err, req, res, {status: 201, returnObj: {isMatch: isMatch}}, next);
+			  		var result = {};
+			  		result.agent = agent;
+			  		result.isMatch = isMatch;
+					repsonseHandler(err, req, res, {status: 201, returnObj: {result: result}}, next);
 				});
 			}
 		});

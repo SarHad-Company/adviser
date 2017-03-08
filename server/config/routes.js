@@ -41,6 +41,8 @@ app.post('/api/agent/signIn', agentController.signIn);
 // upload an image 
 app.post('/api/upload',utils.uploadImg);
 app.post('/api/sendMail', utils.voucherEmail);
+app.post('/api/sendConfirmMail', utils.confirmEmail);
+
   // If a request is sent somewhere other than the routes above,
   // send it through our custom error handler
 app.use(helpers.errorLogger);
