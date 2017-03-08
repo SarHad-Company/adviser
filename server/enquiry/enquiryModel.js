@@ -50,7 +50,9 @@ var enquirySchema = new mongoose.Schema({
 		flightNumber: {type: String},
 		departureTime: {type: Date}		
 	},
-	enquiryDate: {type: Date, default: Date.now}
+	enquiryDate: {type: Date, default: Date.now},
+	agentId: {type: Number},
+	agency: {type: String}
 
 });
 
