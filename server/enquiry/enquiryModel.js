@@ -31,7 +31,7 @@ var enquirySchema = new mongoose.Schema({
 	hotelType: {type: String},
 	city: {type: String},
 	country: {type: String},
-	mobile: {type: Number},
+	mobile: {type: String},
 	email: {type: String},
 	package:{type: Number},
 	packageName: {type: String},

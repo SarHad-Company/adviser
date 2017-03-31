@@ -20,7 +20,8 @@ angular.module('adviser', [
   'ngMaterial',
   'angularUtils.directives.dirPagination',
   'ui.bootstrap',
-  'ngMessages'
+  'ngMessages',
+  'darthwade.dwLoading'
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
