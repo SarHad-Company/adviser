@@ -1,6 +1,6 @@
 angular.module('adviser.packageInfo', [])
 
-.controller('packageInfoController', function($scope, $routeParams, Package, $location, Agent){
+.controller('packageInfoController', function($scope, $routeParams, Package, $location, Agent, $loading){
 
 		$scope.myInterval = 3000;
 		$scope.total = 0;
@@ -332,30 +332,33 @@ angular.module('adviser.packageInfo', [])
 			else{
 				$scope.enquiry.agentId = 0;
 				$scope.enquiry.agency = 'client';
+				$loading.start('users');
 				Package.addEnquiry($scope.enquiry)
 				.then(function (enquiry){
-					console.log(enquiry);
-					alert("book done");
 					//console.log(moment.utc(enquiry.data.checkin).format('MM/DD/YYYY'))
 					Package.sendMail(enquiry.data, $scope.data)
 					.then(function (data){
 						console.log('email', data)
 						Package.sendConfirmMail(enquiry.data, $scope.data)
 							.then(function (data){
-								console.log('email', data)
+								console.log('email', data);
+								$loading.finish('users');
 								$location.path("confirm");
 							})
 							.catch(function(error){
-								console.log(error)
+								alert("An Error Occured");
+								$loading.finish('users');
 							})
 					})
 					.catch(function(error){
-						console.log(error)
+						alert("An Error Occured");
+						$loading.finish('users');
 					})
 					
 				})
 				.catch(function (error){
 					alert ("an error occured, Enquiry Is Not Saved");
+					$loading.finish('users');
 				})
 			}
 		}
@@ -370,29 +373,33 @@ angular.module('adviser.packageInfo', [])
 			if (res.data.result.isMatch === true){
 				$scope.enquiry.agentId = res.data.result.agent._id;
 				$scope.enquiry.agency = res.data.result.agent.agency;
+				 $loading.start('users');
 				Package.addEnquiry($scope.enquiry)
 				.then(function (enquiry){
 					console.log(enquiry);
-					alert("book done");
 					Package.sendMail(enquiry.data, $scope.data)
 					.then(function (data){
 						console.log('email', data)
 						Package.sendConfirmMail(enquiry.data, $scope.data)
 							.then(function (data){
 								console.log('email', data)
+								 $loading.finish('users');
 								$location.path("confirm");
 							})
 							.catch(function(error){
-								console.log(error)
+								alert("An Error Occured");
+								 $loading.finish('users');
 							})
 					})
 					.catch(function(error){
-						console.log(error)
+						alert("An Error Occured");
+						$loading.finish('users');
 					})
 					
 				})
 				.catch(function (error){
 					alert ("an error occured, Enquiry Is Not Saved");
+					$loading.finish('users');
 				})
 			}// end if
 			else if (res.data.result.isMatch === false){
@@ -407,8 +414,5 @@ angular.module('adviser.packageInfo', [])
 			console.log(err);
 		})
 	}
-
-
-
 
 });

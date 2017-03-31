@@ -1,6 +1,6 @@
 <div ng-include="'../header.html'">                    
 </div>
-<div class="container main-div enquiry">
+<div class="container main-div enquiry" dw-loading="users" dw-loading-options="{text: 'Please Wait....', className: 'custom-loading', spinnerOptions: {lines: 12, length: 90, width:30, radius: 90, color: '#f0f', direction: -1, speed: 1, top:850}}">
 		<h3 class="well">Enquiry Form</h3>
 	<div class="col-lg-12 well">
 	<div class="row">
@@ -505,21 +505,3 @@ If you experience any difficulties with completing your payment or booking onlin
 
 <div  ng-include="'../footer.html'">                    
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
-	var t="<div  style='border-width:1px; border-color:#000; border-style:solid; margin-bottom:10px' class='passDiv'><div class='row' style='padding-top:8px;margin-left:2px'><div class='col-sm-4 form-group'><label>First Name</label><input type='text' placeholder='Enter First Name Here..' class='form-control firstName'></div><div class='col-sm-4 form-group'><label>Last Name</label><input type='text' placeholder='Enter Last Name Here..' class='form-control lastName'></div><div class='col-sm-4 form-group'><label>Passport Number</label><input type='text' placeholder='Enter Passport Number' class='form-control passport'></div></div><div class='row' style='margin-left:2px'><div class='col-sm-4 form-group'><label>Birth Date</label><input type='date' placeholder='Enter Birth Date'class='birthDate' /></div><div class='col-sm-4 form-group'><label>Gender </label><select><option value='male'>male</option><option value='female'>female</option></select></div></div>"
-		$("#pass").change(function(){
-				$(this).find("option:selected").each(function(){
-					$("#passenger").html(" ");
-					var length=Number($(this).text());
-					for(var i=1; i<length; i++) {
-						$("#passenger").append(t);
-							 $("#passenger").show();
-					}
-
-
-				});
-		}).change();
-
-});
-</script>
