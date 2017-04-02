@@ -23,6 +23,7 @@ var EMAIL_ACCOUNT_PASSWORD = 'Nader@2017';
 var YOUR_NAME = 'Adviser';
 var EMAIL_CONFIRM = 'web@advisertours.com';
  
+
 var smtpTransport = nodemailer.createTransport(smtpTransport({
 		host: 'smtp.gmail.com',
 		port: 587,
