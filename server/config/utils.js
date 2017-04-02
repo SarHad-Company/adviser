@@ -1,6 +1,7 @@
 
 var multer = require('multer');
 var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 
 var storage = multer.diskStorage({ 
@@ -22,21 +23,25 @@ var EMAIL_ACCOUNT_PASSWORD = 'Nader@2017';
 var YOUR_NAME = 'Adviser';
 var EMAIL_CONFIRM = 'web@advisertours.com';
  
-var smtpTransport = nodemailer.createTransport({
-		host: 'smtp.emailsrvr.com',
+
+var smtpTransport = nodemailer.createTransport(smtpTransport({
+		host: 'smtp.gmail.com',
 		port: 587,
-		 tls: {
-        rejectUnauthorized: false
-    },
+		 // tls: {
+   //      rejectUnauthorized: false
+   //  },
 		auth: {
-			user: EMAIL_ACCOUNT_USER,
-			pass: EMAIL_ACCOUNT_PASSWORD
+			// user: EMAIL_ACCOUNT_USER,
+			// pass: EMAIL_ACCOUNT_PASSWORD
+			user: 'e.saryaa@gmail.com',
+			pass: 'sarbilamr'
 		}
-});
+}));
 
 var sendMail = function(content, to, next) {
 		var mailOptions = {
-				from:YOUR_NAME + ' <' + EMAIL_ACCOUNT_USER + '>',
+				// from:YOUR_NAME + ' <' + EMAIL_ACCOUNT_USER + '>',
+				from:'e.saryaa@gmail.com',
 				to: to,
 				subject: 'Booking Confirmation',
 				text: 'hello sooooooooooos',
