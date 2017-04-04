@@ -22,7 +22,6 @@ var upload = multer({
 // var EMAIL_ACCOUNT_PASSWORD = 'Nader@2017';
 var YOUR_NAME = 'Adviser';
 var EMAIL_CONFIRM = 'e.saryaa@outlook.com';
- 
 var smtpTransport = nodemailer.createTransport(smtpTransport({
 		host: 'smtp.zoho.com',
 		port: 587,
