@@ -33,8 +33,8 @@ var smtpTransport = nodemailer.createTransport(smtpTransport({
 		auth: {
 			// user: EMAIL_ACCOUNT_USER,
 			// pass: EMAIL_ACCOUNT_PASSWORD
-			user: 'no-reply@advisertours.com',
-			pass: 'Adviser@$1233'
+			user: '',
+			pass: ''
 		}
 }));
 
