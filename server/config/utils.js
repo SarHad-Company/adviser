@@ -1,7 +1,6 @@
-
 var multer = require('multer');
 var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
+// var smtpTransport = require('nodemailer-smtp-transport');
 
 
 var storage = multer.diskStorage({ 
@@ -22,10 +21,10 @@ var upload = multer({
 // var EMAIL_ACCOUNT_PASSWORD = 'Nader@2017';
 var YOUR_NAME = 'Adviser';
 var EMAIL_CONFIRM = 'web@advisertours.com';
-var smtpTransport = nodemailer.createTransport(smtpTransport({
-		host: 'smtp.emailsrvr.com',
+
+var smtpTransport = nodemailer.createTransport({
+		host: 'secure.emailsrvr.com',
 		port: 587,
-		// secure: false,
 
 		 // tls: {
    //      rejectUnauthorized: false
@@ -33,10 +32,12 @@ var smtpTransport = nodemailer.createTransport(smtpTransport({
 		auth: {
 			// user: EMAIL_ACCOUNT_USER,
 			// pass: EMAIL_ACCOUNT_PASSWORD
-			user: '',
-			pass: ''
+
+			user: 'no-reply@advisertours.com',
+			pass: 'Adviser@$1233'
+
 		}
-}));
+});
 
 var sendMail = function(content, to, next) {
 		var mailOptions = {
@@ -44,19 +45,11 @@ var sendMail = function(content, to, next) {
 				from:'no-reply@advisertours.com',
 				to: to,
 				subject: 'Booking Confirmation',
-				text: 'hello sooooooooooos',
 				html: content
 		}
 		smtpTransport.sendMail(mailOptions, next);
 
-	//   smtpTransport.sendMail(mailOptions, function (err, info){
- //    	if (err){
- //    		console.log(err);
- //    	}
- //    		else {
- //    			res.json(info);
- //    		}
- //    	});
+
 	}
 
 
@@ -71,6 +64,38 @@ module.exports = {
 			res.send({error_code:0,err_desc:null, file:req.file});
 		});
 	},
+
+//   sendMail : function() {
+
+// 		var smtpTransport = nodemailer.createTransport({
+// 		pool: true,
+// 		host: "secure.emailsrvr.com",
+// 		port: 587,
+// 		auth: {
+// 			user: 'no-reply@advisertours.com',
+// 			pass: 'Adviser@$1233'
+// 		}
+// });
+// 		var mailOptions = {
+// 				// from:YOUR_NAME + ' <' + EMAIL_ACCOUNT_USER + '>',
+// 				from:'no-reply@advisertours.com',
+// 				to: 'e.saryaa@gmail.com',
+// 				subject: 'Booking Confirmation',
+// 				text: 'hiii'
+// 		}
+	
+// 	  smtpTransport.sendMail(mailOptions, function (err, info){
+//     	if (err){
+//     		console.log(err);
+//     	}
+//     		else {
+//     			res.json(info);
+//     		}
+//     	});
+// 	},
+
+
+
 
 	voucherEmail: function(req, res){
 		console.log(req.body)
