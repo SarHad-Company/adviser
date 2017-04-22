@@ -17,13 +17,13 @@ var upload = multer({
 		}).single('file');
 
 // configuration for Email 
-// var EMAIL_ACCOUNT_USER = 'no-reply@advisertours.com';
-// var EMAIL_ACCOUNT_PASSWORD = 'Nader@2017';
+// var EMAIL_ACCOUNT_USER = '';
+// var EMAIL_ACCOUNT_PASSWORD = '';
 var YOUR_NAME = 'Adviser';
 var EMAIL_CONFIRM = 'web@advisertours.com';
 
 var smtpTransport = nodemailer.createTransport({
-		host: 'secure.emailsrvr.com',
+		host: '',
 		port: 587,
 
 		 // tls: {
@@ -33,8 +33,8 @@ var smtpTransport = nodemailer.createTransport({
 			// user: EMAIL_ACCOUNT_USER,
 			// pass: EMAIL_ACCOUNT_PASSWORD
 
-			user: 'no-reply@advisertours.com',
-			pass: 'Adviser@$1233'
+			user: '',
+			pass: ''
 
 		}
 });
