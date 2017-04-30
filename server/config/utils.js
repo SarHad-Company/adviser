@@ -17,12 +17,15 @@ var upload = multer({
 		}).single('file');
 
 // configuration for Email 
+
  var EMAIL_ACCOUNT_USER = 'sarya.alsayed@dot.market';
+
 // var EMAIL_ACCOUNT_PASSWORD = '';
 var YOUR_NAME = 'Adviser';
 var EMAIL_CONFIRM = 'web@advisertours.com';
 
 var smtpTransport = nodemailer.createTransport({
+
 		host: 'smtp.zoho.com',
 		port: 587,
 
@@ -35,6 +38,7 @@ var smtpTransport = nodemailer.createTransport({
 
 			user: 'sarya.alsayed@dot.market',
 			pass: 'abcd1234'
+
 
 		}
 });
