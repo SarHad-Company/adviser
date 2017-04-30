@@ -17,13 +17,16 @@ var upload = multer({
 		}).single('file');
 
 // configuration for Email 
-// var EMAIL_ACCOUNT_USER = 'no-reply@advisertours.com';
-// var EMAIL_ACCOUNT_PASSWORD = 'Nader@2017';
+
+ var EMAIL_ACCOUNT_USER = 'sarya.alsayed@dot.market';
+
+// var EMAIL_ACCOUNT_PASSWORD = '';
 var YOUR_NAME = 'Adviser';
 var EMAIL_CONFIRM = 'web@advisertours.com';
 
 var smtpTransport = nodemailer.createTransport({
-		host: 'secure.emailsrvr.com',
+
+		host: 'smtp.zoho.com',
 		port: 587,
 
 		 // tls: {
@@ -33,16 +36,16 @@ var smtpTransport = nodemailer.createTransport({
 			// user: EMAIL_ACCOUNT_USER,
 			// pass: EMAIL_ACCOUNT_PASSWORD
 
-			user: 'no-reply@advisertours.com',
-			pass: 'Adviser@$1233'
+			user: 'sarya.alsayed@dot.market',
+			pass: 'abcd1234'
+
 
 		}
 });
 
 var sendMail = function(content, to, next) {
 		var mailOptions = {
-				// from:YOUR_NAME + ' <' + EMAIL_ACCOUNT_USER + '>',
-				from:'no-reply@advisertours.com',
+				from:YOUR_NAME + ' <' + EMAIL_ACCOUNT_USER + '>',				
 				to: to,
 				subject: 'Booking Confirmation',
 				html: content

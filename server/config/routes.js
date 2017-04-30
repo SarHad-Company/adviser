@@ -5,6 +5,7 @@ var destinationController= require('../destination/destinationController.js');
 var packageController= require('../package/packageController.js');
 var enquiryController = require('../enquiry/enquiryController.js');
 var agentController = require('../agent/agentController.js');
+var linkController = require('../link/linkController.js');
 module.exports = function (app, express) {
 
 // jordanPlace api
@@ -37,6 +38,10 @@ app.get('/api/agent/agentInfo/:id', agentController.agentInfo);
 app.delete('/api/agent/deleteAgent/:id', agentController.deleteAgent);
 app.put('/api/agent/updateAgent/:id', agentController.updateAgent);
 app.post('/api/agent/signIn', agentController.signIn);
+
+// link api
+app.post('/api/link/newLink', linkController.newLink);
+app.get('/api/link/linkInfo/:linkName', linkController.linkInfo);
 
 // upload an image 
 app.post('/api/upload',utils.uploadImg);

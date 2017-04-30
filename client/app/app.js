@@ -107,7 +107,7 @@ angular.module('adviser', [
   .when('/cms/agents/:id', {
     templateUrl: 'app/cms/updateAgentCms.html',
     controller: 'agentCmsController'
-  })
+  }) 
   .when('/destinations/:destinationName/:id', {
     templateUrl: 'app/destination/destination.html',
     controller: 'destinationController'
@@ -121,6 +121,18 @@ angular.module('adviser', [
   })
   .when('/contactUs', {
     templateUrl: 'app/main/contactUs.html'
+  })
+  .when('/terms-conditions', {
+    templateUrl: 'app/main/terms.html',
+    controller: 'headerController'
+  })
+  .when('/privacy-policy', {
+    templateUrl: 'app/main/policy.html',
+    controller: 'headerController'
+  })
+  .when('/cms/links', {
+    templateUrl: 'app/cms/addTerms.html',
+    controller: 'addJordanPlaceCmsController'
   })
   .otherwise({
       redirectTo: '/home'
