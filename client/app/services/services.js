@@ -138,13 +138,49 @@ angular.module('adviser.services', [])
       });
     };
 
+  var addTerms = function (terms) {
+    return $http({
+      method: 'POST',
+      url: '/api/link/newLink',
+      data: terms
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  var addPolicy = function (policy) {
+    return $http({
+      method: 'POST',
+      url: '/api/link/newLink',
+      data: policy
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  var getTerms = function (linkName) {
+    return $http({
+      method: 'GET',
+      url: '/api/link/linkInfo/' + linkName
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
   return{
     addDestination: addDestination,
     uploadPicture: uploadPicture,
     getAllDestinations: getAllDestinations,
     getDestinationInfo: getDestinationInfo,
     updateDestination: updateDestination,
-    deleteDestination: deleteDestination
+    deleteDestination: deleteDestination,
+    addTerms: addTerms,
+    addPolicy : addPolicy,
+    getTerms: getTerms
+
   };
 
 })

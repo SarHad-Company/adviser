@@ -1,6 +1,6 @@
 angular.module('adviser.addJordanPlaceCms', [])
 
-.controller('addJordanPlaceCmsController', function ($scope, Jordan, $location) {
+.controller('addJordanPlaceCmsController', function ($scope, Jordan, $location, Destination) {
   // Your code here
 
   $scope.place={};
@@ -81,6 +81,55 @@ $scope.upload = function(file) {//upload an image to the game
         }
       }
     }
+
+
+  $scope.addTerms= function(){
+    var terms={};     
+    terms.linkName= 'terms & conditions';
+    terms.description= $scope.terms;
+    Destination.addTerms(terms)
+    .then(function(terms){
+      alert("Terms are updated");
+    })
+    .catch(function(error){
+      console.log(error);
+    });
+      
+  };
+
+  $scope.addPolicy= function(){
+    var policy={};     
+    policy.linkName= 'policy';
+    policy.description= $scope.policy;
+    Destination.addPolicy(policy)
+    .then(function(policy){
+      alert("policies are updated");
+    })
+    .catch(function(error){
+      console.log(error);
+    });
+      
+  };
+
+
+  var getTerms= function(){
+    Destination.getTerms('terms & conditions')
+    .then(function(terms){
+      $scope.terms = terms.description;
+    }).catch(function(error){
+      console.log(error);
+    });
+  };
+  var getPolicy= function(){
+    Destination.getTerms('policy')
+    .then(function(policy){
+      $scope.policy = policy.description;
+    }).catch(function(error){
+      console.log(error);
+    });
+  };
+  getTerms();
+  getPolicy();
 
   $scope.tinymceOptions = {
    height: 400,

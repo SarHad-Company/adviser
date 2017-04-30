@@ -13,4 +13,30 @@ angular.module('adviser.header',[])
 	};
 	getAllDestinations();
 
+	var getTerms= function(){
+		Destination.getTerms('terms & conditions')
+		.then(function(terms){
+			$("#terms").html(terms.description);
+		}).catch(function(error){
+			console.log(error);
+		});
+	};
+
+	var getPolicy= function(){
+		Destination.getTerms('policy')
+		.then(function(policy){
+			$("#policy").html(policy.description);
+		}).catch(function(error){
+			console.log(error);
+		});
+	};
+
+
+
+
+	getTerms();
+	getPolicy();
+
+
 });
+
