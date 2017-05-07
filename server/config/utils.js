@@ -22,7 +22,7 @@ var upload = multer({
 
 // var EMAIL_ACCOUNT_PASSWORD = '';
 var YOUR_NAME = 'Adviser';
-var EMAIL_CONFIRM = 'web@advisertours.com';
+var EMAIL_CONFIRM = 'advisertoursweb@gmail.com';
 
 var smtpTransport = nodemailer.createTransport({
 
