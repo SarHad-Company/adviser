@@ -592,18 +592,7 @@ ul.jordanUl {
     height: 1500px;
 
    }
-  
-  
+ 
 }
 
- #cspio-content {
-    display: none;
-    max-width: 600px;
-    background-color: #000000;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    background-color:transparent;
-  }
+
