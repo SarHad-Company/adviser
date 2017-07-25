@@ -134,6 +134,9 @@ angular.module('adviser', [
     templateUrl: 'app/cms/addTerms.html',
     controller: 'addJordanPlaceCmsController'
   })
+  .when('/test', {
+    templateUrl: 'app/underConstruction/under.html'
+    })
   .otherwise({
       redirectTo: '/home'
     });
