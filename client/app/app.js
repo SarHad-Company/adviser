@@ -137,6 +137,22 @@ angular.module('adviser', [
   .when('/test', {
     templateUrl: 'app/underConstruction/under.html'
     })
+  .when('/cms/pageContent', {
+      templateUrl: 'app/cms/dashboard.html'
+      // controller: 'tableController'
+    })
+  .when('/cms/jordan', {
+      templateUrl: 'app/cms/dashboard.html'
+      // controller: 'tableController'
+    })
+  .when('/cms/changePassword', {
+      templateUrl: 'app/cms/dashboard.html'
+      // controller: 'tableController'
+    })
+  .when('/cms/logout', {
+      templateUrl: 'app/cms/login.html',
+      controller: 'cmsController'
+    })
   .otherwise({
       redirectTo: '/home'
     });
